@@ -8,7 +8,7 @@ A premium, high-performance personal portfolio website built with **React 19**, 
   - 3D Tilt effects on project cards.
   - Interactive mouse-parallax background elements.
   - Smooth spring-based transitions for a tactile feel.
-  - Staggered scroll reveals for section content.
+  - Staggered scroll reveals for section content
 - **💎 Premium Design**: A modern dark-themed aesthetic using Glassmorphism, tailored gradients, and subtle glow effects.
 - **📱 Fully Responsive**: Optimized for all devices, from high-resolution desktops to mobile phones.
 - **🛠️ Professional Tech Stack**: Built with industry-standard tools for scalability and maintainability.
