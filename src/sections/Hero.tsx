@@ -253,7 +253,7 @@ export default function Hero() {
 
                     {/* Profile Image */}
                     <motion.img
-                      src="/profile.jpg"
+                      src={`${import.meta.env.BASE_URL}profile.jpg`}
                       alt="Momen Salman - Mobile App Developer"
                       className="w-full h-full object-cover"
                       whileHover={{ scale: 1.05 }}
