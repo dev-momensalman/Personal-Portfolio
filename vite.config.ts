@@ -7,6 +7,9 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 export default defineConfig({
   base: '/Personal-Portfolio/',
   plugins: [inspectAttr(), react()],
+  build: {
+    outDir: 'docs', // GitHub Pages will serve from this folder
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
