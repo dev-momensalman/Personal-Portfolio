@@ -51,7 +51,7 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="experience" className="relative py-20 sm:py-28 lg:py-32 bg-black overflow-hidden">
+    <section id="experience" className="relative py-12 sm:py-28 lg:py-32 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(66,109,216,0.06)_0%,transparent_50%)]" />
 
@@ -77,7 +77,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
             My Professional <span className="gradient-text">Journey</span>
           </motion.h2>

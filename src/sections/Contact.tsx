@@ -75,7 +75,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-28 lg:py-32 bg-[#050505] overflow-hidden">
+    <section id="contact" className="relative py-12 sm:py-28 lg:py-32 bg-[#050505] overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(66,109,216,0.08)_0%,transparent_60%)]" />
 
@@ -101,7 +101,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4"
           >
             Let's <span className="gradient-text">Work Together</span>
           </motion.h2>
@@ -160,7 +160,7 @@ export default function Contact() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#1a1a1a]">
+            <div className="p-5 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#1a1a1a]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
                   <MessageSquare className="w-5 h-5 text-white" />

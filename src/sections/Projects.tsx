@@ -46,7 +46,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="projects" className="relative py-20 sm:py-28 lg:py-32 bg-black overflow-hidden">
+    <section id="projects" className="relative py-12 sm:py-28 lg:py-32 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(66,109,216,0.05)_0%,transparent_60%)]" />
 
@@ -72,7 +72,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
             Featured <span className="gradient-text">Work</span>
           </motion.h2>
@@ -154,7 +154,7 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
       >
         {/* Project Header */}
         <div
-          className={`relative h-64 sm:h-72 overflow-hidden bg-gradient-to-br ${project.gradient}`}
+          className={`relative h-48 sm:h-72 overflow-hidden bg-gradient-to-br ${project.gradient}`}
         >
           {/* Project Image */}
           <div className="absolute inset-0">
@@ -202,7 +202,7 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
         </div>
 
         {/* Content */}
-        <div className="p-8 sm:p-10" style={{ transform: "translateZ(40px)" }}>
+        <div className="p-5 sm:p-10" style={{ transform: "translateZ(40px)" }}>
           {/* Title */}
           <div className="mb-4">
             <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-[#426dd8] transition-colors">

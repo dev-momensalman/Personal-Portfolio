@@ -31,7 +31,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="about" className="relative py-20 sm:py-28 lg:py-32 bg-black overflow-hidden">
+    <section id="about" className="relative py-12 sm:py-28 lg:py-32 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(183,92,255,0.06)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(66,109,216,0.06)_0%,transparent_50%)]" />
@@ -62,7 +62,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
             Crafting Digital{' '}
             <span className="gradient-text">Experiences</span>

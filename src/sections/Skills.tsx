@@ -60,7 +60,7 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" className="relative py-20 sm:py-28 lg:py-32 bg-[#050505] overflow-hidden">
+    <section id="skills" className="relative py-12 sm:py-28 lg:py-32 bg-[#050505] overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(66,109,216,0.05)_0%,transparent_60%)]" />
 
@@ -73,7 +73,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 sm:mb-20"
         >
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
@@ -81,16 +81,16 @@ export default function Skills() {
           >
             My Skills
           </motion.span>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
             Technologies I <span className="gradient-text">Work With</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -113,7 +113,7 @@ export default function Skills() {
               className="group relative p-5 sm:p-6 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:bg-[#0d0d0d] transition-all duration-300"
             >
               {/* Glow Effect */}
-              <div 
+              <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
                   background: `radial-gradient(circle at 50% 0%, ${category.color}15 0%, transparent 70%)`,
@@ -123,7 +123,7 @@ export default function Skills() {
               <div className="relative">
                 {/* Icon & Title Row */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div 
+                  <div
                     className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: `${category.color}15` }}
                   >

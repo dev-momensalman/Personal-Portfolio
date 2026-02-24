@@ -138,7 +138,7 @@ export default function Hero() {
             {/* Name */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-bold mb-4"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-bold mb-4"
             >
               <span className="text-white">Hi, I'm </span>
               <span className="gradient-text">Momen Salman</span>
@@ -241,7 +241,7 @@ export default function Hero() {
 
               {/* Main Image Container */}
               <motion.div
-                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
+                className="relative w-40 h-40 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               >
