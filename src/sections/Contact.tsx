@@ -51,7 +51,7 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/xjkvveon', { // I'll use a placeholder, the user can change it
+      const response = await fetch('https://formspree.io/f/mlgwoygb', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
