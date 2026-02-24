@@ -8,7 +8,7 @@ const projects = [
     subtitle: 'Task Management App',
     description: 'A comprehensive cross-platform mobile application for managing daily tasks efficiently with local data persistence.',
     icon: Layers,
-    tech: ['Flutter', 'Dart', 'Provider', 'SQLite'],
+    tech: ['Flutter', 'Dart', 'Provider'],
     features: [
       'Create, edit & delete tasks',
       'Task categorization',
@@ -16,24 +16,26 @@ const projects = [
       'Local data storage',
     ],
     github: 'https://github.com/dev-momensalman/ToDo_List',
-    demo: '#',
+    demo: 'https://dev-momensalman.github.io/Personal-Portfolio/',
+    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=2072',
     color: '#426dd8',
     gradient: 'from-[#426dd8] to-[#5a8af0]',
   },
   {
     title: 'Weather App',
     subtitle: 'Real-time Weather',
-    description: 'A sleek weather application providing real-time data with clean interface and smooth user experience.',
+    description: 'A sleek weather application providing real-time data using BLoC pattern for efficient state management and clean architecture.',
     icon: Cloud,
-    tech: ['Flutter', 'Dart', 'REST API', 'HTTP'],
+    tech: ['Flutter', 'Dart', 'BLoC', 'REST API'],
     features: [
       'Real-time weather data',
       'Location-based forecasts',
-      '7-day predictions',
+      'BLoC State Management',
       'Error handling',
     ],
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/dev-momensalman/Weather_App',
+    demo: 'https://dev-momensalman.github.io/Personal-Portfolio/',
+    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=2070',
     color: '#b75cff',
     gradient: 'from-[#b75cff] to-[#d48aff]',
   },
@@ -154,24 +156,34 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
         <div
           className={`relative h-64 sm:h-72 overflow-hidden bg-gradient-to-br ${project.gradient}`}
         >
+          {/* Project Image */}
+          <div className="absolute inset-0">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+          </div>
+
           {/* Pattern */}
           <div
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0 opacity-10"
             style={{
               backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
               backgroundSize: '24px 24px',
             }}
           />
 
-          {/* Icon */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          {/* Icon Badge (Small) */}
+          <div className="absolute top-6 left-6">
             <motion.div
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-2xl"
+              className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl"
               whileHover={{ scale: 1.1, rotate: 10 }}
               transition={{ type: 'spring' as const, stiffness: 300, damping: 10 }}
               style={{ transform: "translateZ(80px)" }}
             >
-              <project.icon className="w-12 h-12 sm:w-14 sm:h-14 text-white" />
+              <project.icon className="w-6 h-6 text-white" />
             </motion.div>
           </div>
 
