@@ -10,6 +10,8 @@ import Projects from './sections/Projects';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
+import CustomCursor from './components/CustomCursor';
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -59,6 +61,7 @@ function App() {
           transition={{ duration: 0.5 }}
           className="min-h-screen bg-black"
         >
+          <CustomCursor />
           <Navigation />
           <main>
             <Hero />

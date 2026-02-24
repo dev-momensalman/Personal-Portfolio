@@ -48,6 +48,18 @@
     @apply bg-black text-white antialiased;
     font-family: 'Inter', sans-serif;
   }
+
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+
+    a,
+    button,
+    [role="button"] {
+      cursor: none !important;
+    }
+  }
 }
 
 @layer utilities {
