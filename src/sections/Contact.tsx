@@ -124,7 +124,7 @@ export default function Contact() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               {contactInfo.map((item, index) => (
                 <motion.a
                   key={item.label}
@@ -144,7 +144,7 @@ export default function Contact() {
                     <item.icon className="w-5 h-5" style={{ color: item.color }} />
                   </div>
                   <p className="text-xs text-[#666] mb-1">{item.label}</p>
-                  <p className="text-white text-sm font-medium flex items-center gap-1 group-hover:text-[#426dd8] transition-colors">
+                  <p className="text-white text-sm font-medium flex items-center gap-1 group-hover:text-[#426dd8] transition-colors break-all">
                     {item.value}
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </p>
