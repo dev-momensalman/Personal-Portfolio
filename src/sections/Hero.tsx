@@ -284,20 +284,7 @@ export default function Hero() {
                 />
               </motion.div>
 
-              {/* Tech Stack Tags */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2, type: 'spring' }}
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-right-8 flex gap-2 z-20"
-              >
-                <div className="px-4 py-2 rounded-full glass text-xs sm:text-sm text-[#acb7c1] whitespace-nowrap glow">
-                  Flutter
-                </div>
-                <div className="px-4 py-2 rounded-full glass text-xs sm:text-sm text-[#acb7c1] whitespace-nowrap glow">
-                  Dart
-                </div>
-              </motion.div>
+
             </div>
           </motion.div>
         </div>
