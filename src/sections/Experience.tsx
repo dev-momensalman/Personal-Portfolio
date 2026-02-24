@@ -19,7 +19,7 @@ const experiences = [
     current: true,
   },
   {
-    title: 'Web Data Analyst',
+    title: 'Data Analyst(Power BI)',
     company: 'MCIT – "Tawar We Ghayar"',
     location: 'Remote',
     type: 'Trainee',

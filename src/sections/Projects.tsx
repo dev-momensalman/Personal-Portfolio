@@ -15,7 +15,7 @@ const projects = [
       'Due date reminders',
       'Local data storage',
     ],
-    github: '#',
+    github: 'https://github.com/dev-momensalman/ToDo_List',
     demo: '#',
     color: '#426dd8',
     gradient: 'from-[#426dd8] to-[#5a8af0]',
