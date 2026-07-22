@@ -1,25 +1,25 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Layers, Cloud, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, BookOpen, Cloud, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'To-Do Manager',
-    subtitle: 'Task Management App',
-    description: 'A comprehensive cross-platform mobile application for managing daily tasks efficiently with local data persistence.',
-    icon: Layers,
-    tech: ['Flutter', 'Dart', 'Provider'],
+    title: 'Khaleek Momen',
+    subtitle: 'Islamic Audio Hub',
+    description: 'A comprehensive Islamic audio platform built with Flutter featuring Quran recitation, prayer times, Adhan scheduling, live radio, daily Azkar, and a Qibla compass with full Arabic/English localization.',
+    icon: BookOpen,
+    tech: ['Flutter', 'Dart', 'Provider', 'Hive'],
     features: [
-      'Create, edit & delete tasks',
-      'Task categorization',
-      'Due date reminders',
-      'Local data storage',
+      'Quran recitation with 100+ reciters',
+      'Prayer times & Adhan scheduler',
+      'Daily Azkar with interactive counters',
+      'Qibla compass & Islamic radio',
     ],
-    github: 'https://github.com/dev-momensalman/ToDo_List',
-    demo: 'https://dev-momensalman.github.io/Personal-Portfolio/',
-    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=2072',
-    color: '#426dd8',
-    gradient: 'from-[#426dd8] to-[#5a8af0]',
+    github: 'https://github.com/dev-momensalman/KhaleekMomen',
+    demo: 'https://play.google.com/store/apps/details?id=com.islamicaudiohub.islamic_audio_hub&pli=1',
+    image: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&q=80&w=2070',
+    color: '#00695C',
+    gradient: 'from-[#00695C] to-[#26A69A]',
   },
   {
     title: 'Weather App',
@@ -67,7 +67,6 @@ export default function Projects() {
           >
             Projects
           </motion.span>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -76,7 +75,6 @@ export default function Projects() {
           >
             Featured <span className="gradient-text">Work</span>
           </motion.h2>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -101,7 +99,6 @@ export default function Projects() {
 function ProjectCard({ project, index, isInView }: { project: any; index: number; isInView: boolean }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
@@ -114,10 +111,8 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
-
     x.set(xPct);
     y.set(yPct);
   };
