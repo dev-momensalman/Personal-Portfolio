@@ -1,6 +1,7 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github, BookOpen, Cloud, ArrowUpRight } from 'lucide-react';
+import { SiGoogleplay } from 'react-icons/si';
 
 const projects = [
   {
@@ -17,6 +18,8 @@ const projects = [
     ],
     github: 'https://github.com/dev-momensalman/KhaleekMomen',
     demo: 'https://play.google.com/store/apps/details?id=com.islamicaudiohub.islamic_audio_hub&pli=1',
+    demoLabel: 'Google Play',
+    demoType: 'google-play',
     image: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&q=80&w=2070',
     color: '#00695C',
     gradient: 'from-[#00695C] to-[#26A69A]',
@@ -192,7 +195,11 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <ArrowUpRight className="w-6 h-6" />
+              {project.demoType === 'google-play' ? (
+                <SiGoogleplay className="w-6 h-6" />
+              ) : (
+                <ArrowUpRight className="w-6 h-6" />
+              )}
             </motion.a>
           )}
         </div>
@@ -248,12 +255,25 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             {project.demo && (
               <motion.a
                 href={project.demo}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl gradient-bg text-white text-sm font-semibold glow shadow-lg shadow-[#426dd8]/20"
+                className={project.demoType === 'google-play'
+                  ? "flex-1 relative overflow-hidden flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-sm font-bold shadow-lg shadow-emerald-500/25 ring-1 ring-white/15 transition-all"
+                  : "flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl gradient-bg text-white text-sm font-semibold glow shadow-lg shadow-[#426dd8]/20"
+                }
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <ExternalLink className="w-4.5 h-4.5" />
-                Live Demo
+                {project.demoType === 'google-play' ? (
+                  <>
+                    <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />
+                    <SiGoogleplay className="relative w-5 h-5" />
+                    <span className="relative">Google Play</span>
+                  </>
+                ) : (
+                  <>
+                    <ExternalLink className="w-4.5 h-4.5" />
+                    {project.demoLabel ?? 'Live Demo'}
+                  </>
+                )}
               </motion.a>
             )}
           </div>
