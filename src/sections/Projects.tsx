@@ -34,7 +34,6 @@ const projects = [
       'Error handling',
     ],
     github: 'https://github.com/dev-momensalman/Weather_App',
-    demo: 'https://dev-momensalman.github.io/Personal-Portfolio/',
     image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=2070',
     color: '#b75cff',
     gradient: 'from-[#b75cff] to-[#d48aff]',
@@ -186,14 +185,16 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
 
           {/* View Project Button */}
-          <motion.a
-            href={project.demo}
-            className="absolute top-6 right-6 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0"
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ArrowUpRight className="w-6 h-6" />
-          </motion.a>
+          {project.demo && (
+            <motion.a
+              href={project.demo}
+              className="absolute top-6 right-6 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0"
+              whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ArrowUpRight className="w-6 h-6" />
+            </motion.a>
+          )}
         </div>
 
         {/* Content */}
@@ -244,15 +245,17 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               <Github className="w-4.5 h-4.5" />
               Code
             </motion.a>
-            <motion.a
-              href={project.demo}
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl gradient-bg text-white text-sm font-semibold glow shadow-lg shadow-[#426dd8]/20"
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <ExternalLink className="w-4.5 h-4.5" />
-              Live Demo
-            </motion.a>
+            {project.demo && (
+              <motion.a
+                href={project.demo}
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl gradient-bg text-white text-sm font-semibold glow shadow-lg shadow-[#426dd8]/20"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ExternalLink className="w-4.5 h-4.5" />
+                Live Demo
+              </motion.a>
+            )}
           </div>
         </div>
       </div>
