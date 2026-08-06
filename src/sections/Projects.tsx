@@ -1,6 +1,6 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, BookOpen, Cloud, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, BookOpen, Cloud, ArrowUpRight, Bluetooth } from 'lucide-react';
 
 const GooglePlayIcon = ({ className = '' }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -18,12 +18,7 @@ const projects = [
     description: 'A comprehensive Islamic audio platform built with Flutter featuring Quran recitation, prayer times, Adhan scheduling, live radio, daily Azkar, and a Qibla compass with full Arabic/English localization.',
     icon: BookOpen,
     tech: ['Flutter', 'Dart', 'Provider', 'Hive'],
-    features: [
-      'Quran recitation with 100+ reciters',
-      'Prayer times & Adhan scheduler',
-      'Daily Azkar with interactive counters',
-      'Qibla compass & Islamic radio',
-    ],
+    features: ['Quran recitation with 100+ reciters', 'Prayer times & Adhan scheduler', 'Daily Azkar with interactive counters', 'Qibla compass & Islamic radio'],
     github: 'https://github.com/dev-momensalman/KhaleekMomen',
     demo: 'https://play.google.com/store/apps/details?id=com.islamicaudiohub.islamic_audio_hub&pli=1',
     demoLabel: 'Google Play',
@@ -38,16 +33,23 @@ const projects = [
     description: 'A sleek weather application providing real-time data using BLoC pattern for efficient state management and clean architecture.',
     icon: Cloud,
     tech: ['Flutter', 'Dart', 'BLoC', 'REST API'],
-    features: [
-      'Real-time weather data',
-      'Location-based forecasts',
-      'BLoC State Management',
-      'Error handling',
-    ],
+    features: ['Real-time weather data', 'Location-based forecasts', 'BLoC State Management', 'Error handling'],
     github: 'https://github.com/dev-momensalman/Weather_App',
     image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=2070',
     color: '#b75cff',
     gradient: 'from-[#b75cff] to-[#d48aff]',
+  },
+  {
+    title: 'IOT Controller',
+    subtitle: 'Bluetooth Device Control',
+    description: 'A Flutter Bluetooth controller for embedded systems and smart devices, with directional commands, speed controls, mode switching, and a clean control-focused interface.',
+    icon: Bluetooth,
+    tech: ['Flutter', 'Dart', 'Bluetooth', 'Provider'],
+    features: ['Bluetooth Classic connection', 'Directional movement controls', 'Speed increase/decrease commands', 'Manual and auto mode switching'],
+    github: 'https://github.com/dev-momensalman/IOT_Controller',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070',
+    color: '#00AEEF',
+    gradient: 'from-[#00AEEF] to-[#426dd8]',
   },
 ];
 
@@ -56,7 +58,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="projects" className="relative py-12 sm:py-28 lg:py-32 bg-black overflow-hidden">
+    <section id="projects" className="relative py-12 sm:py-24 lg:py-28 bg-black overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(66,109,216,0.05)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,35 +67,20 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16 sm:mb-20"
+          className="text-center mb-12 sm:mb-16"
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-[#426dd8] text-sm font-medium tracking-wider uppercase mb-4 block"
-          >
+          <motion.span initial={{ opacity: 0, scale: 0.9 }} animate={isInView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.1 }} className="text-[#426dd8] text-sm font-medium tracking-wider uppercase mb-4 block">
             Projects
           </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
-          >
+          <motion.h2 initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }} className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Featured <span className="gradient-text">Work</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="text-[#acb7c1] max-w-2xl mx-auto text-base sm:text-lg"
-          >
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }} className="text-[#acb7c1] max-w-2xl mx-auto text-base sm:text-lg">
             Projects that showcase my skills and passion for mobile development
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-10">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} isInView={isInView} />
           ))}
@@ -109,17 +96,13 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
     x.set(xPct);
     y.set(yPct);
   };
@@ -133,103 +116,70 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        delay: 0.2 + index * 0.2,
-        type: 'spring' as const,
-        stiffness: 50,
-        damping: 15
-      }}
+      transition={{ delay: 0.2 + index * 0.15, type: 'spring' as const, stiffness: 50, damping: 15 }}
       className="group"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
     >
-      <div
-        className="h-full rounded-[2.5rem] bg-[#0a0a0a] border border-[#1a1a1a] overflow-hidden hover:border-[#333] transition-colors duration-500 relative"
-        style={{ transform: "translateZ(50px)" }}
-      >
-        <div className={`relative h-48 sm:h-72 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+      <div className="h-full rounded-[2rem] bg-[#0a0a0a] border border-[#1a1a1a] overflow-hidden hover:border-[#333] transition-colors duration-500 relative" style={{ transform: "translateZ(40px)" }}>
+        <div className={`relative h-44 sm:h-52 lg:h-56 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
           <div className="absolute inset-0">
             <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
           </div>
 
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-              backgroundSize: '24px 24px',
-            }}
-          />
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`, backgroundSize: '24px 24px' }} />
 
-          <div className="absolute top-6 left-6">
-            <motion.div
-              className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl"
-              whileHover={{ scale: 1.1, rotate: 10 }}
-              transition={{ type: 'spring' as const, stiffness: 300, damping: 10 }}
-              style={{ transform: "translateZ(80px)" }}
-            >
-              <project.icon className="w-6 h-6 text-white" />
+          <div className="absolute top-5 left-5">
+            <motion.div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl" whileHover={{ scale: 1.1, rotate: 10 }} transition={{ type: 'spring' as const, stiffness: 300, damping: 10 }} style={{ transform: "translateZ(70px)" }}>
+              <project.icon className="w-5 h-5 text-white" />
             </motion.div>
           </div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
 
           {project.demo && (
-            <motion.a
-              href={project.demo}
-              className="absolute top-6 right-6 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0"
-              whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {project.demoType === 'google-play' ? <GooglePlayIcon className="w-6 h-6" /> : <ArrowUpRight className="w-6 h-6" />}
+            <motion.a href={project.demo} className="absolute top-5 right-5 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0" whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }} whileTap={{ scale: 0.95 }}>
+              {project.demoType === 'google-play' ? <GooglePlayIcon className="w-5 h-5" /> : <ArrowUpRight className="w-5 h-5" />}
             </motion.a>
           )}
         </div>
 
-        <div className="p-5 sm:p-10" style={{ transform: "translateZ(40px)" }}>
-          <div className="mb-4">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-[#426dd8] transition-colors">
-              {project.title}
-            </h3>
-            <p className="text-sm text-[#666] font-medium tracking-wide mt-1 uppercase">{project.subtitle}</p>
+        <div className="p-5 lg:p-6" style={{ transform: "translateZ(35px)" }}>
+          <div className="mb-3">
+            <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-[#426dd8] transition-colors">{project.title}</h3>
+            <p className="text-xs text-[#666] font-medium tracking-wide mt-1 uppercase">{project.subtitle}</p>
           </div>
 
-          <p className="text-[#888] text-base mb-6 leading-relaxed">{project.description}</p>
+          <p className="text-[#888] text-sm mb-5 leading-relaxed">{project.description}</p>
 
-          <div className="flex flex-wrap gap-2.5 mb-8">
+          <div className="flex flex-wrap gap-2 mb-5">
             {project.tech.map((tech: string) => (
-              <span key={tech} className="px-3 py-1.5 rounded-xl text-xs bg-[#111] border border-[#222] text-[#999] font-medium">
-                {tech}
-              </span>
+              <span key={tech} className="px-2.5 py-1 rounded-xl text-[11px] bg-[#111] border border-[#222] text-[#999] font-medium">{tech}</span>
             ))}
           </div>
 
-          <ul className="space-y-2.5 mb-10">
+          <ul className="space-y-2 mb-7">
             {project.features.map((feature: string, i: number) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-[#777]">
+              <li key={i} className="flex items-start gap-2.5 text-xs text-[#777]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#426dd8] mt-1.5 flex-shrink-0" />
                 {feature}
               </li>
             ))}
           </ul>
 
-          <div className="flex gap-4">
-            <motion.a
-              href={project.github}
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-[#111] border border-[#222] text-white text-sm font-semibold hover:bg-[#1a1a1a] hover:border-[#333] transition-all"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Github className="w-4.5 h-4.5" />
+          <div className="flex gap-3">
+            <motion.a href={project.github} className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-[#111] border border-[#222] text-white text-xs font-semibold hover:bg-[#1a1a1a] hover:border-[#333] transition-all" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Github className="w-4 h-4" />
               Code
             </motion.a>
             {project.demo && (
               <motion.a
                 href={project.demo}
                 className={project.demoType === 'google-play'
-                  ? "flex-1 relative overflow-hidden flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-sm font-bold shadow-lg shadow-emerald-500/25 ring-1 ring-white/15 transition-all"
-                  : "flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl gradient-bg text-white text-sm font-semibold glow shadow-lg shadow-[#426dd8]/20"
+                  ? "flex-1 relative overflow-hidden flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-xs font-bold shadow-lg shadow-emerald-500/25 ring-1 ring-white/15 transition-all"
+                  : "flex-1 flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl gradient-bg text-white text-xs font-semibold glow shadow-lg shadow-[#426dd8]/20"
                 }
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -237,12 +187,12 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
                 {project.demoType === 'google-play' ? (
                   <>
                     <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />
-                    <GooglePlayIcon className="relative w-5 h-5" />
+                    <GooglePlayIcon className="relative w-4 h-4" />
                     <span className="relative">Google Play</span>
                   </>
                 ) : (
                   <>
-                    <ExternalLink className="w-4.5 h-4.5" />
+                    <ExternalLink className="w-4 h-4" />
                     {project.demoLabel ?? 'Live Demo'}
                   </>
                 )}
