@@ -1,135 +1,115 @@
-<div align="center">
+# Momen Salman Portfolio
 
-<img src="https://capsule-render.vercel.app/render?type=soft&color=auto&height=250&section=header&text=Momen%20Salman&fontSize=70&animation=fadeIn&fontAlignY=38&desc=Premium%20Mobile%20App%20Developer&descAlignY=60&descSize=20" width="100%" />
+A responsive personal portfolio website for a mobile app developer, built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion. The site presents experience, skills, education, featured projects, and contact options through a polished dark interface with smooth motion.
 
-# 🌌 Modern Portfolio Ecosystem
-### *Crafting Digital Experiences with React 19 & Framer Motion*
+## Live Site
 
-<p align="center">
-  <a href="#-overview">Overview</a> •
-  <a href="#-key-features">Key Features</a> •
-  <a href="#-tech-stack">Tech Stack</a> •
-  <a href="#-project-structure">Architecture</a> •
-  <a href="#-getting-started">Getting Started</a>
-</p>
+https://www.momen.info/
 
-[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer-Motion-0055FF?style=for-the-badge&logo=framer)](https://www.framer.com/motion/)
+## Overview
 
-</div>
+This project is designed as a professional portfolio with a strong visual identity and clear section-based navigation. It includes a loading screen, custom cursor, animated hero section, about section, skills, experience, education, project cards, contact form, and footer.
 
----
+## Features
 
-## 📖 Overview
-A **premium, high-performance** personal portfolio website. This isn't just a website; it's a sophisticated design system tailored for a professional **Mobile App Developer**. Built to be lightning-fast, highly accessible, and visually stunning, utilizing the latest capabilities of **React 19**.
+- Fully responsive one-page portfolio layout
+- Animated loading screen with Framer Motion
+- Custom cursor component
+- Smooth navigation between page sections
+- Hero section with profile image, social links, stats, and call-to-action buttons
+- Featured projects section with 3D tilt cards and live/code links
+- Contact section with Formspree integration
+- Dark visual style with gradients, glass effects, and motion details
+- Tailwind-based styling and reusable section components
+- GitHub Pages deployment script included
 
----
+## Tech Stack
 
-## ✨ Key Features
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide React icons
+- Radix UI dependencies
+- Formspree contact endpoint
+- GitHub Pages deployment tooling
 
-<table width="100%">
-  <tr>
-    <td width="55%" valign="top">
-      <h4>🚀 Motion Engineering</h4>
-      <ul>
-        <li><b>3D Tilt Effects:</b> Dynamic perspective response on project cards.</li>
-        <li><b>Parallax Engine:</b> Interactive background elements with mouse-depth tracking.</li>
-        <li><b>Spring Physics:</b> Smooth, spring-based transitions for a tactile feel.</li>
-        <li><b>Staggered Reveals:</b> Optimized scroll-triggered content entry.</li>
-      </ul>
-      <h4>💎 Visual Excellence</h4>
-      <ul>
-        <li><b>Glassmorphism:</b> Sophisticated frosted-glass aesthetic.</li>
-        <li><b>Mesh Gradients:</b> Tailored gradients with subtle glow effects.</li>
-        <li><b>Fluid Response:</b> Full optimization from 4K desktops to mobile phones.</li>
-      </ul>
-    </td>
-    <td width="45%" align="center">
-      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW90bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/jzHFPlw89eTqU/giphy.gif" width="100%" style="border-radius:10px;" />
-    </td>
-  </tr>
-</table>
+## Project Structure
 
-- **🛠️ Professional Grade**: Built with industry-standard tools for scalability and clean code maintenance.
-- **📧 Seamless Connectivity**: Fully integrated contact section with smooth social link interactions.
+```text
+src/
+├── App.tsx                         # Main app composition and loading state
+├── main.tsx                        # React entry point
+├── index.css                       # Global styles and Tailwind layers
+├── components/
+│   └── CustomCursor.tsx            # Custom pointer interaction
+└── sections/
+    ├── Navigation.tsx              # Header and section navigation
+    ├── Hero.tsx                    # Intro, profile image, stats, and CTAs
+    ├── About.tsx                   # Personal summary section
+    ├── Skills.tsx                  # Skills and tools section
+    ├── Experience.tsx              # Experience timeline/content
+    ├── Education.tsx               # Education and certifications
+    ├── Projects.tsx                # Featured project cards
+    ├── Contact.tsx                 # Contact details and message form
+    └── Footer.tsx                  # Footer links and closing content
+```
 
----
+## Main Flow
 
-## 🛠️ Tech Stack
+1. `App.tsx` shows a short animated loading screen.
+2. After loading, the main page renders the custom cursor, navigation, all sections, and footer.
+3. `Hero.tsx` introduces the developer and links to GitHub, LinkedIn, and email.
+4. `Projects.tsx` highlights selected Flutter projects with tech stacks, features, code links, and demos.
+5. `Contact.tsx` sends form submissions to Formspree and shows success/error feedback.
 
-<div align="center">
+## Getting Started
 
-### Frontend Core
-| React 19 | TypeScript | Tailwind CSS | Vite |
-| :---: | :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="50" height="50" /> | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="50" height="50" /> | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg" width="50" height="50" /> | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" width="50" height="50" /> |
+### Requirements
 
-</div>
+- Node.js 18 or newer
+- npm
 
-- **Animations**: [Framer Motion](https://www.framer.com/motion/) (Advanced motion orchestration)
-- **Icons**: [Lucide React](https://lucide.dev/) (Consistent vector language)
-- **Components**: [Radix UI](https://www.radix-ui.com/) (Headless primitives for accessibility)
-
----
-
-## 📁 Project Structure
+### Run Locally
 
 ```bash
-📦 app
- ┣ 📂 public           # Static assets, Logos & Global Branding
- ┣ 📂 src
- ┃ ┣ 📂 components     # Reusable UI primitives (Buttons, Inputs, Cards)
- ┃ ┣ 📂 sections       # Main page sections (Hero, About, Projects, Contact)
- ┃ ┣ 📂 lib            # Utility functions, Animation variants & Hooks
- ┃ ┣ 📜 App.tsx        # Main application entry point
- ┃ ┗ 📜 index.css      # Global styles, Tailwind directives & Design System
- ┣ 📜 tailwind.config.js
- ┗ 📜 vite.config.ts
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (Version 18 or higher recommended)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone [repository-url]
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Personal-Portfolio
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Development
-
-Run the development server:
-```bash
+git clone https://github.com/dev-momensalman/Personal-Portfolio.git
+cd Personal-Portfolio
+npm install
 npm run dev
 ```
 
 ### Build
 
-Create a production build:
 ```bash
 npm run build
 ```
 
-## ⚖️ License
+### Preview Production Build
 
-This project is open-source and available under the MIT License.
+```bash
+npm run preview
+```
 
----
-*Created with ❤️ by Momen Salman*
+### Deploy
 
+```bash
+npm run deploy
+```
 
- 
+## Notes for Reviewers
+
+- The main structure is easy to follow from `src/App.tsx`.
+- Section content lives in `src/sections`, which keeps the single-page layout organized.
+- Motion behavior is concentrated in the section files and powered by Framer Motion.
+- The contact form uses Formspree, so testing submissions requires network access.
+- The current featured projects are configured directly inside `src/sections/Projects.tsx`.
+
+## Future Improvements
+
+- Move project, skills, and experience data into separate content files
+- Add unit tests for reusable UI behavior
+- Add accessibility checks for custom cursor and motion-heavy interactions
+- Add a reduced-motion mode for users who prefer less animation
+- Add CMS or JSON-driven content updates
