@@ -70,7 +70,7 @@ export default function Hero() {
     }
   };
 
-  const cvUrl = `${import.meta.env.BASE_URL}Momen_Salman_CV.html`;
+  const cvUrl = 'https://drive.google.com/file/d/1iSkgUMDmavoraUyZL9Ne2aEZzdyefxoP/view?usp=drive_link';
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20">
@@ -138,7 +138,7 @@ export default function Hero() {
               </motion.button>
               <motion.a href={cvUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold hover:bg-[#e8ecf3] transition-all flex items-center justify-center gap-2" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Download size={18} />
-                View CV
+                Download CV
               </motion.a>
               <motion.button onClick={() => scrollToSection('#contact')} className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#1a1a1a] border border-[#333] text-white font-medium hover:bg-[#222] hover:border-[#444] transition-all" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 Contact Me
