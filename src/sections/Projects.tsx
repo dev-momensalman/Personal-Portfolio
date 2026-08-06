@@ -1,7 +1,15 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github, BookOpen, Cloud, ArrowUpRight } from 'lucide-react';
-import { SiGoogleplay } from 'react-icons/si';
+
+const GooglePlayIcon = ({ className = '' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M3.61 2.18A1.7 1.7 0 0 0 3 3.49v17.02c0 .5.22.96.61 1.31l9.72-9.82L3.61 2.18Z" />
+    <path d="m14.02 12 2.98-3-11.1-6.32c-.35-.2-.7-.24-1.02-.14L14.02 12Z" />
+    <path d="M17 15 14.02 12l-9.14 9.46c.32.1.67.06 1.02-.14L17 15Z" />
+    <path d="m18.05 9.6-1.05-.6-2.98 3 2.98 3 1.05-.6c1.27-.72 1.27-4.08 0-4.8Z" />
+  </svg>
+);
 
 const projects = [
   {
@@ -49,11 +57,9 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative py-12 sm:py-28 lg:py-32 bg-black overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(66,109,216,0.05)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -87,7 +93,6 @@ export default function Projects() {
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8 sm:gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} isInView={isInView} />
@@ -137,33 +142,18 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
       className="group"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
     >
       <div
         className="h-full rounded-[2.5rem] bg-[#0a0a0a] border border-[#1a1a1a] overflow-hidden hover:border-[#333] transition-colors duration-500 relative"
-        style={{
-          transform: "translateZ(50px)",
-        }}
+        style={{ transform: "translateZ(50px)" }}
       >
-        {/* Project Header */}
-        <div
-          className={`relative h-48 sm:h-72 overflow-hidden bg-gradient-to-br ${project.gradient}`}
-        >
-          {/* Project Image */}
+        <div className={`relative h-48 sm:h-72 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
           <div className="absolute inset-0">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
           </div>
 
-          {/* Pattern */}
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -172,7 +162,6 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             }}
           />
 
-          {/* Icon Badge (Small) */}
           <div className="absolute top-6 left-6">
             <motion.div
               className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl"
@@ -184,10 +173,8 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             </motion.div>
           </div>
 
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
 
-          {/* View Project Button */}
           {project.demo && (
             <motion.a
               href={project.demo}
@@ -195,18 +182,12 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
               whileTap={{ scale: 0.95 }}
             >
-              {project.demoType === 'google-play' ? (
-                <SiGoogleplay className="w-6 h-6" />
-              ) : (
-                <ArrowUpRight className="w-6 h-6" />
-              )}
+              {project.demoType === 'google-play' ? <GooglePlayIcon className="w-6 h-6" /> : <ArrowUpRight className="w-6 h-6" />}
             </motion.a>
           )}
         </div>
 
-        {/* Content */}
         <div className="p-5 sm:p-10" style={{ transform: "translateZ(40px)" }}>
-          {/* Title */}
           <div className="mb-4">
             <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-[#426dd8] transition-colors">
               {project.title}
@@ -214,24 +195,16 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             <p className="text-sm text-[#666] font-medium tracking-wide mt-1 uppercase">{project.subtitle}</p>
           </div>
 
-          {/* Description */}
-          <p className="text-[#888] text-base mb-6 leading-relaxed">
-            {project.description}
-          </p>
+          <p className="text-[#888] text-base mb-6 leading-relaxed">{project.description}</p>
 
-          {/* Tech Stack */}
           <div className="flex flex-wrap gap-2.5 mb-8">
             {project.tech.map((tech: string) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 rounded-xl text-xs bg-[#111] border border-[#222] text-[#999] font-medium"
-              >
+              <span key={tech} className="px-3 py-1.5 rounded-xl text-xs bg-[#111] border border-[#222] text-[#999] font-medium">
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* Features */}
           <ul className="space-y-2.5 mb-10">
             {project.features.map((feature: string, i: number) => (
               <li key={i} className="flex items-start gap-3 text-sm text-[#777]">
@@ -241,7 +214,6 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             ))}
           </ul>
 
-          {/* Actions */}
           <div className="flex gap-4">
             <motion.a
               href={project.github}
@@ -265,7 +237,7 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
                 {project.demoType === 'google-play' ? (
                   <>
                     <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />
-                    <SiGoogleplay className="relative w-5 h-5" />
+                    <GooglePlayIcon className="relative w-5 h-5" />
                     <span className="relative">Google Play</span>
                   </>
                 ) : (
