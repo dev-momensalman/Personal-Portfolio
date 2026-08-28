@@ -51,9 +51,9 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="experience" className="relative py-12 sm:py-28 lg:py-32 bg-black overflow-hidden">
+    <section id="experience" className="relative py-12 sm:py-28 lg:py-32 bg-[#f5fafd] overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(66,109,216,0.06)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,180,216,0.06)_0%,transparent_50%)]" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -68,7 +68,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-[#426dd8] text-sm font-medium tracking-wider uppercase mb-4 block"
+            className="text-[#00677d] text-sm font-semibold tracking-wider uppercase mb-4 block"
           >
             Experience
           </motion.span>
@@ -77,7 +77,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171c1f] mb-4 tracking-tight"
           >
             My Professional <span className="gradient-text">Journey</span>
           </motion.h2>
@@ -86,7 +86,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="text-[#acb7c1] max-w-2xl mx-auto text-base sm:text-lg"
+            className="text-[#3d494d] max-w-2xl mx-auto text-base sm:text-lg"
           >
             Building expertise through hands-on training and real-world projects
           </motion.p>
@@ -95,7 +95,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line - Desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#426dd8] via-[#b75cff] to-[#426dd8]" />
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#00677d] via-[#00b4d8] to-[#00677d]" />
 
           {/* Experience Items */}
           <div className="space-y-8 sm:space-y-12">
@@ -117,7 +117,7 @@ export default function Experience() {
                   {/* Timeline Dot */}
                   <div className="relative flex-shrink-0">
                     <motion.div
-                      className={`w-4 h-4 rounded-full border-4 border-black ${exp.current ? 'bg-green-500' : 'bg-[#426dd8]'}`}
+                      className={`w-4 h-4 rounded-full border-4 border-white ${exp.current ? 'bg-emerald-500' : 'bg-[#00677d]'}`}
                       animate={exp.current ? { scale: [1, 1.2, 1] } : {}}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
@@ -133,12 +133,12 @@ export default function Experience() {
                     {/* Timeline Line & Dot */}
                     <div className="flex flex-col items-center">
                       <motion.div
-                        className={`w-3 h-3 rounded-full border-2 border-black flex-shrink-0 ${exp.current ? 'bg-green-500' : 'bg-[#426dd8]'}`}
+                        className={`w-3.5 h-3.5 rounded-full border-2 border-white flex-shrink-0 ${exp.current ? 'bg-emerald-500' : 'bg-[#00677d]'}`}
                         animate={exp.current ? { scale: [1, 1.2, 1] } : {}}
                         transition={{ duration: 2, repeat: Infinity }}
                       />
                       {index < experiences.length - 1 && (
-                        <div className="w-px flex-1 bg-gradient-to-b from-[#426dd8] to-[#b75cff] mt-2" />
+                        <div className="w-px flex-1 bg-gradient-to-b from-[#00677d] to-[#00b4d8] mt-2" />
                       )}
                     </div>
 
@@ -159,34 +159,34 @@ export default function Experience() {
 
 function ExperienceCard({ exp }: { exp: typeof experiences[0] }) {
   return (
-    <div className="p-5 sm:p-6 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#333] transition-all duration-300 group">
+    <div className="p-5 sm:p-6 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00b4d8] hover:bg-white transition-all duration-300 group shadow-sm backdrop-blur-md">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0 shadow-md">
             <Briefcase className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h3 className="text-white font-semibold text-base sm:text-lg group-hover:text-[#426dd8] transition-colors">
+            <h3 className="text-[#171c1f] font-bold text-base sm:text-lg group-hover:text-[#00677d] transition-colors">
               {exp.title}
             </h3>
-            <p className="text-[#999] text-sm">{exp.company}</p>
+            <p className="text-[#3d494d] text-sm font-medium">{exp.company}</p>
           </div>
         </div>
         {exp.current && (
-          <span className="self-start px-2.5 py-1 rounded-full text-xs bg-green-500/10 text-green-400 border border-green-500/20">
+          <span className="self-start px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/30">
             Current
           </span>
         )}
       </div>
 
       {/* Meta Info */}
-      <div className="flex flex-wrap gap-3 mb-4 text-xs sm:text-sm text-[#666]">
-        <div className="flex items-center gap-1.5">
+      <div className="flex flex-wrap gap-3 mb-4 text-xs sm:text-sm text-[#6d797e]">
+        <div className="flex items-center gap-1.5 font-medium">
           <Calendar className="w-3.5 h-3.5" />
           {exp.period}
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 font-medium">
           <MapPin className="w-3.5 h-3.5" />
           {exp.location}
         </div>
@@ -195,8 +195,8 @@ function ExperienceCard({ exp }: { exp: typeof experiences[0] }) {
       {/* Description */}
       <ul className="space-y-2">
         {exp.description.map((item, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-[#888]">
-            <span className="w-1 h-1 rounded-full bg-[#426dd8] mt-2 flex-shrink-0" />
+          <li key={i} className="flex items-start gap-2 text-sm text-[#3d494d]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00b4d8] mt-2 flex-shrink-0" />
             {item}
           </li>
         ))}

@@ -29,7 +29,7 @@ function App() {
       {isLoading ? (
         <motion.div
           key="loader"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#f5fafd]"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
@@ -40,12 +40,12 @@ function App() {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="w-12 h-12 rounded-full border-2 border-[#222] border-t-[#426dd8]"
+              className="w-12 h-12 rounded-full border-2 border-[#dee3e6] border-t-[#00b4d8]"
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
             />
             <motion.p
-              className="text-[#acb7c1] text-sm"
+              className="text-[#3d494d] text-sm font-medium"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
@@ -59,7 +59,7 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="min-h-screen bg-black"
+          className="min-h-screen bg-[#f5fafd] text-[#171c1f]"
         >
           <CustomCursor />
           <Navigation />

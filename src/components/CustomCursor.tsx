@@ -57,13 +57,13 @@ export default function CustomCursor() {
         <div className="fixed inset-0 pointer-events-none z-[100]">
             {/* Outer Glow */}
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 rounded-full mix-blend-screen opacity-50 blur-sm"
+                className="fixed top-0 left-0 w-8 h-8 rounded-full mix-blend-multiply opacity-60 blur-sm"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
                     translateX: '-50%',
                     translateY: '-50%',
-                    background: 'radial-gradient(circle, #426dd8 0%, #b75cff 100%)',
+                    background: 'radial-gradient(circle, #00677d 0%, #00b4d8 100%)',
                     scale: isHovering ? 2.5 : 1,
                 }}
                 transition={{ type: 'spring', damping: 30, stiffness: 200 }}
@@ -71,7 +71,7 @@ export default function CustomCursor() {
 
             {/* Inner Dot */}
             <motion.div
-                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full z-[101]"
+                className="fixed top-0 left-0 w-2.5 h-2.5 bg-[#171c1f] rounded-full z-[101]"
                 style={{
                     x: cursorX,
                     y: cursorY,
@@ -83,7 +83,7 @@ export default function CustomCursor() {
 
             {/* Trailing Pulse */}
             <motion.div
-                className="fixed top-0 left-0 w-12 h-12 rounded-full border border-white/20"
+                className="fixed top-0 left-0 w-12 h-12 rounded-full border border-[#00b4d8]/40"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
@@ -92,7 +92,7 @@ export default function CustomCursor() {
                 }}
                 animate={{
                     scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1],
+                    opacity: [0.2, 0.4, 0.2],
                 }}
                 transition={{
                     duration: 2,

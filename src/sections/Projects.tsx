@@ -24,8 +24,8 @@ const projects = [
     demoLabel: 'Google Play',
     demoType: 'google-play',
     image: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&q=80&w=2070',
-    color: '#00695C',
-    gradient: 'from-[#00695C] to-[#26A69A]',
+    color: '#00677d',
+    gradient: 'from-[#00677d] to-[#00b4d8]',
   },
   {
     title: 'Weather App',
@@ -36,8 +36,8 @@ const projects = [
     features: ['Real-time weather data', 'Location-based forecasts', 'BLoC State Management', 'Error handling'],
     github: 'https://github.com/dev-momensalman/Weather_App',
     image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=2070',
-    color: '#b75cff',
-    gradient: 'from-[#b75cff] to-[#d48aff]',
+    color: '#00b4d8',
+    gradient: 'from-[#00b4d8] to-[#4cd6fb]',
   },
   {
     title: 'IOT Controller',
@@ -48,8 +48,8 @@ const projects = [
     features: ['Bluetooth Classic connection', 'Directional movement controls', 'Speed increase/decrease commands', 'Manual and auto mode switching'],
     github: 'https://github.com/dev-momensalman/IOT_Controller',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070',
-    color: '#00AEEF',
-    gradient: 'from-[#00AEEF] to-[#426dd8]',
+    color: '#00677d',
+    gradient: 'from-[#00677d] to-[#00b4d8]',
   },
 ];
 
@@ -58,28 +58,46 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="projects" className="relative py-12 sm:py-24 lg:py-28 bg-black overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(66,109,216,0.05)_0%,transparent_60%)]" />
+    <section id="projects" className="relative py-12 sm:py-28 lg:py-32 bg-[#f5fafd] overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,180,216,0.06)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-16 sm:mb-20"
         >
-          <motion.span initial={{ opacity: 0, scale: 0.9 }} animate={isInView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.1 }} className="text-[#426dd8] text-sm font-medium tracking-wider uppercase mb-4 block">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.1 }}
+            className="text-[#00677d] text-sm font-semibold tracking-wider uppercase mb-4 block"
+          >
             Projects
           </motion.span>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }} className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171c1f] mb-4 tracking-tight"
+          >
             Featured <span className="gradient-text">Work</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }} className="text-[#acb7c1] max-w-2xl mx-auto text-base sm:text-lg">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3 }}
+            className="text-[#3d494d] max-w-2xl mx-auto text-base sm:text-lg"
+          >
             Projects that showcase my skills and passion for mobile development
           </motion.p>
         </motion.div>
 
+        {/* Projects Grid */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} isInView={isInView} />
@@ -116,61 +134,125 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: 0.2 + index * 0.15, type: 'spring' as const, stiffness: 50, damping: 15 }}
+      transition={{
+        delay: 0.2 + index * 0.15,
+        type: 'spring' as const,
+        stiffness: 50,
+        damping: 15
+      }}
       className="group"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
     >
-      <div className="h-full rounded-[2rem] bg-[#0a0a0a] border border-[#1a1a1a] overflow-hidden hover:border-[#333] transition-colors duration-500 relative" style={{ transform: "translateZ(40px)" }}>
-        <div className={`relative h-44 sm:h-52 lg:h-56 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+      <div
+        className="h-full rounded-[2rem] bg-white/90 border border-[#bcc9ce]/60 overflow-hidden hover:border-[#00b4d8] transition-colors duration-500 relative shadow-md backdrop-blur-md flex flex-col"
+        style={{
+          transform: "translateZ(40px)",
+        }}
+      >
+        {/* Project Header */}
+        <div
+          className={`relative h-44 sm:h-52 lg:h-56 overflow-hidden bg-gradient-to-br ${project.gradient}`}
+        >
+          {/* Project Image */}
           <div className="absolute inset-0">
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-[#171c1f]/30 group-hover:bg-[#171c1f]/10 transition-colors duration-500" />
           </div>
 
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`, backgroundSize: '24px 24px' }} />
+          {/* Pattern */}
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)`,
+              backgroundSize: '24px 24px',
+            }}
+          />
 
+          {/* Icon Badge (Small) */}
           <div className="absolute top-5 left-5">
-            <motion.div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl" whileHover={{ scale: 1.1, rotate: 10 }} transition={{ type: 'spring' as const, stiffness: 300, damping: 10 }} style={{ transform: "translateZ(70px)" }}>
+            <motion.div
+              className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 shadow-lg"
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              transition={{ type: 'spring' as const, stiffness: 300, damping: 10 }}
+              style={{ transform: "translateZ(70px)" }}
+            >
               <project.icon className="w-5 h-5 text-white" />
             </motion.div>
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
 
+          {/* View Project Button */}
           {project.demo && (
-            <motion.a href={project.demo} className="absolute top-5 right-5 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0" whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }} whileTap={{ scale: 0.95 }}>
+            <motion.a
+              href={project.demo}
+              className="absolute top-5 right-5 p-3 rounded-2xl bg-white/20 backdrop-blur-md border border-white/40 text-white opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg"
+              whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.4)" }}
+              whileTap={{ scale: 0.95 }}
+            >
               {project.demoType === 'google-play' ? <GooglePlayIcon className="w-5 h-5" /> : <ArrowUpRight className="w-5 h-5" />}
             </motion.a>
           )}
         </div>
 
-        <div className="p-5 lg:p-6" style={{ transform: "translateZ(35px)" }}>
-          <div className="mb-3">
-            <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-[#426dd8] transition-colors">{project.title}</h3>
-            <p className="text-xs text-[#666] font-medium tracking-wide mt-1 uppercase">{project.subtitle}</p>
+        {/* Content */}
+        <div className="p-5 lg:p-6 flex-1 flex flex-col justify-between" style={{ transform: "translateZ(35px)" }}>
+          <div>
+            {/* Title */}
+            <div className="mb-3">
+              <h3 className="text-xl lg:text-2xl font-bold text-[#171c1f] group-hover:text-[#00677d] transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-xs text-[#6d797e] font-semibold tracking-wide mt-1 uppercase">{project.subtitle}</p>
+            </div>
+
+            {/* Description */}
+            <p className="text-[#3d494d] text-sm mb-5 leading-relaxed">
+              {project.description}
+            </p>
+
+            {/* Tech Stack Chips - Pill Shaped */}
+            <div className="flex flex-wrap gap-2 mb-5">
+              {project.tech.map((tech: string) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#00b4d8]/10 border border-[#00b4d8]/30 text-[#00414f]"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Features */}
+            <ul className="space-y-2 mb-7">
+              {project.features.map((feature: string, i: number) => (
+                <li key={i} className="flex items-start gap-2.5 text-xs text-[#3d494d]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00b4d8] mt-1.5 flex-shrink-0" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <p className="text-[#888] text-sm mb-5 leading-relaxed">{project.description}</p>
-
-          <div className="flex flex-wrap gap-2 mb-5">
-            {project.tech.map((tech: string) => (
-              <span key={tech} className="px-2.5 py-1 rounded-xl text-[11px] bg-[#111] border border-[#222] text-[#999] font-medium">{tech}</span>
-            ))}
-          </div>
-
-          <ul className="space-y-2 mb-7">
-            {project.features.map((feature: string, i: number) => (
-              <li key={i} className="flex items-start gap-2.5 text-xs text-[#777]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#426dd8] mt-1.5 flex-shrink-0" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex gap-3">
-            <motion.a href={project.github} className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-[#111] border border-[#222] text-white text-xs font-semibold hover:bg-[#1a1a1a] hover:border-[#333] transition-all" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+          {/* Actions */}
+          <div className="flex gap-3 pt-2">
+            <motion.a
+              href={project.github}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white border-2 border-[#171c1f] text-[#171c1f] text-xs font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <Github className="w-4 h-4" />
               Code
             </motion.a>
@@ -178,15 +260,14 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               <motion.a
                 href={project.demo}
                 className={project.demoType === 'google-play'
-                  ? "flex-1 relative overflow-hidden flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-xs font-bold shadow-lg shadow-emerald-500/25 ring-1 ring-white/15 transition-all"
-                  : "flex-1 flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl gradient-bg text-white text-xs font-semibold glow shadow-lg shadow-[#426dd8]/20"
+                  ? "flex-1 relative overflow-hidden flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-xs font-bold shadow-md ring-1 ring-white/20 transition-all"
+                  : "flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl gradient-bg text-white text-xs font-semibold glow shadow-md"
                 }
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {project.demoType === 'google-play' ? (
                   <>
-                    <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />
                     <GooglePlayIcon className="relative w-4 h-4" />
                     <span className="relative">Google Play</span>
                   </>

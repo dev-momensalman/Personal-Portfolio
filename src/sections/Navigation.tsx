@@ -54,7 +54,7 @@ export default function Navigation() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-black/80 backdrop-blur-xl border-b border-[#111]'
+            ? 'bg-[#f5fafd]/85 backdrop-blur-xl border-b border-[#bcc9ce]/40 shadow-sm'
             : 'bg-transparent'
         }`}
       >
@@ -84,10 +84,10 @@ export default function Navigation() {
                     e.preventDefault();
                     scrollToSection(link.href);
                   }}
-                  className={`relative px-4 py-2 text-sm rounded-lg transition-colors ${
+                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                     activeSection === link.href.replace('#', '')
-                      ? 'text-white'
-                      : 'text-[#666] hover:text-white'
+                      ? 'text-[#00677d]'
+                      : 'text-[#3d494d] hover:text-[#00677d]'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -96,7 +96,7 @@ export default function Navigation() {
                   {activeSection === link.href.replace('#', '') && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute inset-0 bg-[#111] rounded-lg -z-10"
+                      className="absolute inset-0 bg-[#00b4d8]/10 rounded-lg -z-10 border border-[#00b4d8]/20"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -111,7 +111,7 @@ export default function Navigation() {
                 e.preventDefault();
                 scrollToSection('#contact');
               }}
-              className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full gradient-bg text-white text-sm font-medium"
+              className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full gradient-bg text-white text-sm font-medium glow shadow-md"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -120,7 +120,7 @@ export default function Navigation() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-2 rounded-lg bg-[#111] border border-[#222] text-white"
+              className="md:hidden p-2 rounded-lg bg-white border border-[#bcc9ce] text-[#171c1f]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
@@ -145,7 +145,7 @@ export default function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+              className="absolute inset-0 bg-[#171c1f]/40 backdrop-blur-md"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -155,7 +155,7 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-20 left-4 right-4 p-6 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a]"
+              className="absolute top-20 left-4 right-4 p-6 rounded-2xl bg-white border border-[#bcc9ce] shadow-xl"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
@@ -171,8 +171,8 @@ export default function Navigation() {
                     transition={{ delay: index * 0.05 }}
                     className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
                       activeSection === link.href.replace('#', '')
-                        ? 'bg-[#111] text-white'
-                        : 'text-[#666] hover:text-white hover:bg-[#111]'
+                        ? 'bg-[#00b4d8]/10 text-[#00677d] border border-[#00b4d8]/20'
+                        : 'text-[#3d494d] hover:text-[#00677d] hover:bg-[#eff4f7]'
                     }`}
                   >
                     {link.name}
@@ -190,7 +190,7 @@ export default function Navigation() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="mt-4 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl gradient-bg text-white font-medium"
+                className="mt-4 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl gradient-bg text-white font-medium glow"
               >
                 Hire Me
               </motion.a>

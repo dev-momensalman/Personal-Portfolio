@@ -5,59 +5,100 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: {
+          DEFAULT: "#f5fafd",
+          subtle: "#F8F9FA",
+        },
+        foreground: "#171c1f",
+        surface: {
+          DEFAULT: "#f5fafd",
+          dim: "#d5dbde",
+          bright: "#f5fafd",
+          container: {
+            lowest: "#ffffff",
+            low: "#eff4f7",
+            DEFAULT: "#e9eff1",
+            high: "#e3e9ec",
+            highest: "#dee3e6",
+          },
+          variant: "#dee3e6",
+          tint: "#00677d",
+        },
+        "on-surface": {
+          DEFAULT: "#171c1f",
+          variant: "#3d494d",
+        },
+        "inverse-surface": "#2b3134",
+        "inverse-on-surface": "#ecf2f4",
+        outline: {
+          DEFAULT: "#6d797e",
+          variant: "#bcc9ce",
+        },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#00677d",
+          container: "#00b4d8",
+          fixed: "#b3ebff",
+          "fixed-dim": "#4cd6fb",
+          foreground: "#ffffff",
         },
+        "on-primary": {
+          DEFAULT: "#ffffff",
+          container: "#00414f",
+          fixed: "#001f27",
+          "fixed-variant": "#004e5f",
+        },
+        "inverse-primary": "#4cd6fb",
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#5f5e5e",
+          container: "#e5e2e1",
+          foreground: "#ffffff",
+          fixed: "#e5e2e1",
+          "fixed-dim": "#c8c6c5",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
-          foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
+        "on-secondary": {
+          DEFAULT: "#ffffff",
+          container: "#656464",
+          fixed: "#1c1b1b",
+          "fixed-variant": "#474646",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        tertiary: {
+          DEFAULT: "#914d00",
+          container: "#eb8f3b",
+          foreground: "#ffffff",
+          fixed: "#ffdcc3",
+          "fixed-dim": "#ffb77d",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+        "on-tertiary": {
+          DEFAULT: "#ffffff",
+          container: "#5d2f00",
+          fixed: "#2f1500",
+          "fixed-variant": "#6e3900",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        error: {
+          DEFAULT: "#ba1a1a",
+          container: "#ffdad6",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        "on-error": {
+          DEFAULT: "#ffffff",
+          container: "#93000a",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        "charcoal-muted": "#333333",
+        "glass-border": "rgba(188, 201, 206, 0.4)",
       },
       borderRadius: {
-        xl: "calc(var(--radius) + 4px)",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-        xs: "calc(var(--radius) - 6px)",
+        sm: "0.25rem",
+        DEFAULT: "0.5rem",
+        md: "0.75rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        full: "9999px",
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        glass: "0 10px 30px -10px rgba(0, 180, 216, 0.1)",
       },
       keyframes: {
         "accordion-down": {
@@ -81,4 +122,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+}

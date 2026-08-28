@@ -9,28 +9,28 @@ const contactInfo = [
     label: 'Email',
     value: 'momensalman.dev@gmail.com',
     href: 'mailto:momensalman.dev@gmail.com',
-    color: '#426dd8',
+    color: '#00677d',
   },
   {
     icon: Phone,
     label: 'Phone',
     value: '+20 11 01029309',
     href: 'tel:+201101029309',
-    color: '#b75cff',
+    color: '#00b4d8',
   },
   {
     icon: MapPin,
     label: 'Location',
     value: 'Red Sea, Egypt',
     href: '#',
-    color: '#426dd8',
+    color: '#00677d',
   },
   {
     icon: Linkedin,
     label: 'LinkedIn',
     value: 'linkedin.com/in/momensalman',
     href: 'https://linkedin.com/in/momensalman',
-    color: '#b75cff',
+    color: '#00b4d8',
   },
 ];
 
@@ -75,9 +75,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-12 sm:py-28 lg:py-32 bg-[#050505] overflow-hidden">
+    <section id="contact" className="relative py-12 sm:py-28 lg:py-32 bg-[#f5fafd] overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(66,109,216,0.08)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(0,180,216,0.08)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -92,7 +92,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-[#426dd8] text-sm font-medium tracking-wider uppercase mb-4 block"
+            className="text-[#00677d] text-sm font-semibold tracking-wider uppercase mb-4 block"
           >
             Contact
           </motion.span>
@@ -101,7 +101,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171c1f] mb-4 tracking-tight"
           >
             Let's <span className="gradient-text">Work Together</span>
           </motion.h2>
@@ -110,7 +110,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="text-[#acb7c1] max-w-2xl mx-auto text-base sm:text-lg"
+            className="text-[#3d494d] max-w-2xl mx-auto text-base sm:text-lg"
           >
             Have a project in mind? I'd love to hear from you
           </motion.p>
@@ -134,19 +134,19 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  whileHover={{ y: -4, borderColor: `${item.color}50` }}
-                  className="group p-4 sm:p-5 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:bg-[#0d0d0d] transition-all duration-300"
+                  whileHover={{ y: -4, borderColor: item.color }}
+                  className="group p-4 sm:p-5 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:bg-white shadow-sm transition-all duration-300 backdrop-blur-md"
                 >
                   <div
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-3 transition-transform group-hover:scale-110"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-3 transition-transform group-hover:scale-110 shadow-sm"
                     style={{ backgroundColor: `${item.color}15` }}
                   >
                     <item.icon className="w-5 h-5" style={{ color: item.color }} />
                   </div>
-                  <p className="text-xs text-[#666] mb-1">{item.label}</p>
-                  <p className="text-white text-sm font-medium flex items-center gap-1 group-hover:text-[#426dd8] transition-colors break-all">
+                  <p className="text-xs font-semibold text-[#6d797e] mb-1 uppercase tracking-wider">{item.label}</p>
+                  <p className="text-[#171c1f] text-sm font-bold flex items-center gap-1 group-hover:text-[#00677d] transition-colors break-all">
                     {item.value}
-                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#00677d]" />
                   </p>
                 </motion.a>
               ))}
@@ -160,68 +160,68 @@ export default function Contact() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <div className="p-5 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#1a1a1a]">
+            <div className="p-5 sm:p-8 rounded-3xl bg-white/80 border border-[#bcc9ce]/60 shadow-sm backdrop-blur-md">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shadow-md">
                   <MessageSquare className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-lg">Send a Message</h3>
-                  <p className="text-sm text-[#666]">I'll get back to you within 24 hours</p>
+                  <h3 className="text-[#171c1f] font-bold text-lg">Send a Message</h3>
+                  <p className="text-sm text-[#6d797e]">I'll get back to you within 24 hours</p>
                 </div>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-[#666] mb-2">Name</label>
+                    <label className="block text-xs font-semibold text-[#3d494d] uppercase mb-2">Name</label>
                     <input
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-[#111] border border-[#222] text-white text-sm placeholder:text-[#444] focus:outline-none focus:border-[#426dd8] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#eff4f7] border border-[#bcc9ce]/60 text-[#171c1f] text-sm placeholder:text-[#6d797e] focus:outline-none focus:border-[#00677d] focus:bg-white transition-all shadow-inner"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-[#666] mb-2">Email</label>
+                    <label className="block text-xs font-semibold text-[#3d494d] uppercase mb-2">Email</label>
                     <input
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="your@email.com"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-[#111] border border-[#222] text-white text-sm placeholder:text-[#444] focus:outline-none focus:border-[#426dd8] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#eff4f7] border border-[#bcc9ce]/60 text-[#171c1f] text-sm placeholder:text-[#6d797e] focus:outline-none focus:border-[#00677d] focus:bg-white transition-all shadow-inner"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-[#666] mb-2">Subject</label>
+                  <label className="block text-xs font-semibold text-[#3d494d] uppercase mb-2">Subject</label>
                   <input
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Project inquiry"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#111] border border-[#222] text-white text-sm placeholder:text-[#444] focus:outline-none focus:border-[#426dd8] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#eff4f7] border border-[#bcc9ce]/60 text-[#171c1f] text-sm placeholder:text-[#6d797e] focus:outline-none focus:border-[#00677d] focus:bg-white transition-all shadow-inner"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-[#666] mb-2">Message</label>
+                  <label className="block text-xs font-semibold text-[#3d494d] uppercase mb-2">Message</label>
                   <textarea
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell me about your project..."
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#111] border border-[#222] text-white text-sm placeholder:text-[#444] focus:outline-none focus:border-[#426dd8] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#eff4f7] border border-[#bcc9ce]/60 text-[#171c1f] text-sm placeholder:text-[#6d797e] focus:outline-none focus:border-[#00677d] focus:bg-white transition-all resize-none shadow-inner"
                   />
                 </div>
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-medium transition-all ${isSuccess ? 'bg-green-600' : 'gradient-bg'
+                  className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-semibold transition-all glow shadow-md ${isSuccess ? 'bg-emerald-600' : 'gradient-bg'
                     } ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                   whileHover={!isSubmitting ? { scale: 1.01 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.99 } : {}}

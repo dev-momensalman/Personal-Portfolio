@@ -29,9 +29,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative py-16 sm:py-20 bg-[#020202] border-t border-[#111]">
+    <footer className="relative py-16 sm:py-20 bg-[#e9eff1] border-t border-[#bcc9ce]/60">
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(66,109,216,0.04)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,180,216,0.08)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
@@ -42,7 +42,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="mb-6"
           >
-            <span className="text-2xl sm:text-3xl font-bold gradient-text">Momen.</span>
+            <span className="text-2xl sm:text-3xl font-extrabold gradient-text">Momen.</span>
           </motion.div>
 
           {/* Tagline */}
@@ -51,7 +51,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[#666] text-center mb-8 text-sm sm:text-base"
+            className="text-[#3d494d] font-medium text-center mb-8 text-sm sm:text-base"
           >
             Mobile App Developer | Flutter & Dart Enthusiast
           </motion.p>
@@ -72,7 +72,7 @@ export default function Footer() {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-sm text-[#666] hover:text-white transition-colors"
+                className="text-sm font-semibold text-[#3d494d] hover:text-[#00677d] transition-colors"
               >
                 {link.name}
               </a>
@@ -93,7 +93,7 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-[#0a0a0a] border border-[#1a1a1a] text-[#666] hover:text-white hover:border-[#426dd8] hover:bg-[#111] transition-all"
+                className="p-3 rounded-xl bg-white border border-[#bcc9ce] text-[#3d494d] hover:text-[#00677d] hover:border-[#00b4d8] hover:bg-[#eff4f7] transition-all shadow-sm"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={social.label}
@@ -104,7 +104,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#111] mb-8" />
+          <div className="w-full h-px bg-[#bcc9ce]/50 mb-8" />
 
           {/* Bottom Row */}
           <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
@@ -114,16 +114,16 @@ export default function Footer() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-xs sm:text-sm text-[#444] flex items-center gap-1"
+              className="text-xs sm:text-sm text-[#6d797e] font-medium flex items-center gap-1"
             >
               © 2025 Momen Salman. Made with{' '}
-              <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> in Egypt
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> in Egypt
             </motion.p>
 
             {/* Back to Top */}
             <motion.button
               onClick={scrollToTop}
-              className="flex items-center gap-2 text-xs sm:text-sm text-[#666] hover:text-white transition-colors"
+              className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#3d494d] hover:text-[#00677d] transition-colors"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
