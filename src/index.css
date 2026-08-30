@@ -149,4 +149,41 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
-}
+}
+
+/* Wavy/Squiggly Progress Indicator - Google Play Smooth Sine Wave */
+
+@keyframes wavy-rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes wavy-progress {
+  0% {
+    stroke-dashoffset: 660;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 660;
+  }
+}
+
+.wavy-spinner-rotate {
+  transform-origin: center center;
+  animation: wavy-rotate 16s linear infinite;
+}
+
+.wavy-progress-circle {
+  stroke-dasharray: 660;
+  stroke-dashoffset: 660;
+  animation: wavy-progress 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+

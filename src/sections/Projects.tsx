@@ -19,7 +19,6 @@ const projects = [
     icon: BookOpen,
     tech: ['Flutter', 'Dart', 'Provider', 'Hive'],
     features: ['Quran recitation with 100+ reciters', 'Prayer times & Adhan scheduler', 'Daily Azkar with interactive counters', 'Qibla compass & Islamic radio'],
-    github: 'https://github.com/dev-momensalman/KhaleekMomen',
     demo: 'https://play.google.com/store/apps/details?id=com.islamicaudiohub.islamic_audio_hub&pli=1',
     demoLabel: 'Google Play',
     demoType: 'google-play',
@@ -247,15 +246,17 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
 
           {/* Actions */}
           <div className="flex gap-3 pt-2">
-            <motion.a
-              href={project.github}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white border-2 border-[#171c1f] text-[#171c1f] text-xs font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Github className="w-4 h-4" />
-              Code
-            </motion.a>
+            {project.github && (
+              <motion.a
+                href={project.github}
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white border-2 border-[#171c1f] text-[#171c1f] text-xs font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Github className="w-4 h-4" />
+                Code
+              </motion.a>
+            )}
             {project.demo && (
               <motion.a
                 href={project.demo}

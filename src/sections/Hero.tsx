@@ -42,6 +42,22 @@ const imageVariants = {
   },
 };
 
+// Helper to generate a smooth mathematical sine-wave circular path (Google Play Wavy Progress style)
+const generateSineWavePath = (cx: number, cy: number, r: number, amplitude: number, waves: number) => {
+  const points: string[] = [];
+  const steps = 360;
+  for (let i = 0; i <= steps; i++) {
+    const angle = (i * Math.PI) / 180;
+    const currentRadius = r + amplitude * Math.sin(waves * angle);
+    const x = cx + currentRadius * Math.cos(angle);
+    const y = cy + currentRadius * Math.sin(angle);
+    points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(2)} ${y.toFixed(2)}`);
+  }
+  return points.join(' ');
+};
+
+const SINE_WAVE_PATH = generateSineWavePath(120, 120, 104, 4, 20);
+
 export default function Hero() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -258,21 +274,52 @@ export default function Hero() {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               >
-                {/* Gradient Border */}
-                <div className="absolute inset-0 rounded-full p-1.5 sm:p-2 bg-gradient-to-br from-[#00677d] via-[#00b4d8] to-[#4cd6fb] shadow-xl">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-white relative ring-2 ring-white">
-                    {/* Inner Shadow */}
-                    <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.15)] z-10 pointer-events-none" />
+                {/* Wavy/Squiggly Progress Indicator - Google Play Smooth Sine Wave */}
+                <svg
+                  className="absolute inset-[-20px] sm:inset-[-24px] w-[calc(100%+40px)] h-[calc(100%+40px)] sm:w-[calc(100%+48px)] sm:h-[calc(100%+48px)] z-10 wavy-spinner-rotate pointer-events-none"
+                  viewBox="0 0 240 240"
+                >
+                  <defs>
+                    <linearGradient id="wavy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#00677d" />
+                      <stop offset="50%" stopColor="#00b4d8" />
+                      <stop offset="100%" stopColor="#4cd6fb" />
+                    </linearGradient>
+                  </defs>
 
-                    {/* Profile Image */}
-                    <motion.img
-                      src={`${import.meta.env.BASE_URL}profile.jpg`}
-                      alt="Momen Salman - Mobile App Developer"
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    />
-                  </div>
+                  {/* Background track circle */}
+                  <circle
+                    cx="120"
+                    cy="120"
+                    r="104"
+                    stroke="#dee3e6"
+                    strokeWidth="2.5"
+                    fill="none"
+                    opacity="0.5"
+                  />
+
+                  {/* Smooth Sine Wave Progress Path */}
+                  <path
+                    className="wavy-progress-circle"
+                    d={SINE_WAVE_PATH}
+                    stroke="url(#wavy-grad)"
+                    strokeWidth="3.5"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+
+                {/* Profile Photo Container */}
+                <div className="absolute inset-0 rounded-full overflow-hidden bg-white shadow-lg">
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.12)] z-10 pointer-events-none" />
+                  <motion.img
+                    src={`${import.meta.env.BASE_URL}profile.jpg`}
+                    alt="Momen Salman - Mobile App Developer"
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  />
                 </div>
 
                 {/* Status Indicator */}
