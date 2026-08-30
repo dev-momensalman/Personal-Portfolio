@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
@@ -11,54 +11,21 @@ import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
 import CustomCursor from './components/CustomCursor';
+import SplashScreen from './components/SplashScreen';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <AnimatePresence mode="wait">
       {isLoading ? (
-        <motion.div
-          key="loader"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[#f5fafd]"
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div
-            className="flex flex-col items-center gap-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.div
-              className="w-12 h-12 rounded-full border-2 border-[#dee3e6] border-t-[#00b4d8]"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            />
-            <motion.p
-              className="text-[#3d494d] text-sm font-medium"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              Loading...
-            </motion.p>
-          </motion.div>
-        </motion.div>
+        <SplashScreen key="splash" onComplete={() => setIsLoading(false)} />
       ) : (
         <motion.div
           key="content"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="min-h-screen bg-[#f5fafd] text-[#171c1f]"
         >
           <CustomCursor />
