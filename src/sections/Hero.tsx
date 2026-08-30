@@ -348,26 +348,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.5 }}
-      >
-        <motion.div
-          className="w-5 h-8 sm:w-6 sm:h-10 rounded-full border-2 border-[#bcc9ce] flex items-start justify-center p-1.5 sm:p-2 cursor-pointer bg-white/50 backdrop-blur-sm"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          onClick={() => scrollToSection('#about')}
-        >
-          <motion.div
-            className="w-1 h-1.5 sm:w-1.5 sm:h-2 rounded-full bg-[#00677d]"
-            animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
