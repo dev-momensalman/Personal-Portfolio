@@ -159,11 +159,16 @@ export default function Experience() {
 
 function ExperienceCard({ exp }: { exp: typeof experiences[0] }) {
   return (
-    <div className="p-5 sm:p-6 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00b4d8] hover:bg-white transition-all duration-300 group shadow-sm backdrop-blur-md">
+    <motion.div
+      whileHover={{ y: -4, scale: 1.015 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+      className="p-5 sm:p-6 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00b4d8] hover:bg-white transition-colors duration-300 group shadow-sm hover:shadow-md backdrop-blur-md cursor-default text-left"
+    >
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0 shadow-md">
+          <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
             <Briefcase className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -201,6 +206,6 @@ function ExperienceCard({ exp }: { exp: typeof experiences[0] }) {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }

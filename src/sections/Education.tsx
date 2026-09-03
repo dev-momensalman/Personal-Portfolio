@@ -76,13 +76,17 @@ export default function Education() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <div className="h-full p-6 sm:p-8 rounded-3xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00b4d8] transition-all duration-300 shadow-sm backdrop-blur-md">
+            <motion.div
+              whileHover={{ y: -4, scale: 1.01 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+              className="h-full p-6 sm:p-8 rounded-3xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00b4d8] transition-colors duration-300 shadow-sm hover:shadow-md backdrop-blur-md cursor-default"
+            >
               {/* Header */}
               <div className="flex flex-col sm:flex-row items-start gap-5 mb-6">
-                <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center flex-shrink-0 shadow-md">
+                <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform">
                   <GraduationCap className="w-7 h-7 text-white" />
                 </div>
                 <div>
@@ -122,8 +126,9 @@ export default function Education() {
                       key={index}
                       initial={{ opacity: 0, y: 10 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.5 + index * 0.1 }}
-                      className="flex items-start gap-2"
+                      transition={{ delay: 0.5 + index * 0.1, type: 'spring', stiffness: 300, damping: 25 }}
+                      whileHover={{ x: 3 }}
+                      className="flex items-start gap-2 cursor-default"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00b4d8] mt-2 flex-shrink-0" />
                       <span className="text-sm text-[#3d494d]">{achievement}</span>
@@ -131,7 +136,7 @@ export default function Education() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Certifications */}
@@ -153,8 +158,15 @@ export default function Education() {
                     key={cert.name}
                     initial={{ opacity: 0, x: 20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                    className="p-4 rounded-xl bg-[#eff4f7] border border-[#bcc9ce]/40 hover:border-[#00b4d8] transition-all"
+                    transition={{
+                      delay: 0.4 + index * 0.1,
+                      type: 'spring',
+                      stiffness: 300,
+                      damping: 24
+                    }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="p-4 rounded-xl bg-[#eff4f7] border border-[#bcc9ce]/40 hover:border-[#00b4d8] hover:bg-white transition-all cursor-default shadow-sm"
                   >
                     <h4 className="text-[#171c1f] font-bold text-sm mb-1">{cert.name}</h4>
                     <div className="flex items-center justify-between text-xs text-[#6d797e]">

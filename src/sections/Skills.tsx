@@ -108,42 +108,53 @@ export default function Skills() {
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 + index * 0.08, duration: 0.5 }}
-              whileHover={{ y: -6, borderColor: `${category.color}` }}
-              className="group relative p-5 sm:p-6 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:bg-white shadow-sm transition-all duration-300 backdrop-blur-md"
+              transition={{
+                delay: 0.1 + index * 0.08,
+                type: 'spring',
+                stiffness: 260,
+                damping: 22
+              }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              whileTap={{ scale: 0.99 }}
+              className="group relative p-5 sm:p-6 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00677d]/60 hover:bg-white shadow-sm hover:shadow-md transition-colors duration-300 backdrop-blur-md cursor-default"
             >
               {/* Glow Effect */}
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
-                  background: `radial-gradient(circle at 50% 0%, ${category.color}15 0%, transparent 70%)`,
+                  background: `radial-gradient(circle at 50% 0%, ${category.color}18 0%, transparent 70%)`,
                 }}
               />
 
               <div className="relative">
                 {/* Icon & Title Row */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div
+                  <motion.div
+                    whileHover={{ rotate: 8, scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                     className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm"
                     style={{ backgroundColor: `${category.color}15` }}
                   >
                     <category.icon className="w-5 h-5" style={{ color: category.color }} />
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="text-[#171c1f] font-bold text-sm sm:text-base">{category.title}</h3>
                     <p className="text-xs text-[#6d797e]">{category.description}</p>
                   </div>
                 </div>
 
-                {/* Skills Chips - Pill Shaped per specification */}
+                {/* Skills Chips - Pill Shaped with tactile Motion spring */}
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <span
+                    <motion.span
                       key={skill}
-                      className="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-[#00b4d8]/10 border border-[#00b4d8]/30 text-[#00414f] group-hover:border-[#00677d] transition-colors"
+                      whileHover={{ scale: 1.08, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: 'spring', stiffness: 450, damping: 20 }}
+                      className="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-[#00b4d8]/10 border border-[#00b4d8]/30 text-[#00414f] hover:border-[#00677d] hover:bg-[#00b4d8]/20 transition-colors cursor-pointer select-none"
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>

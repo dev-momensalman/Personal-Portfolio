@@ -60,20 +60,6 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-18">
-            {/* Logo */}
-            <motion.a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#home');
-              }}
-              className="text-xl sm:text-2xl font-bold gradient-text"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Momen.
-            </motion.a>
-
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
@@ -120,7 +106,7 @@ export default function Navigation() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-2 rounded-lg bg-white border border-[#bcc9ce] text-[#171c1f]"
+              className="md:hidden ml-auto p-2 rounded-lg bg-white border border-[#bcc9ce] text-[#171c1f]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >

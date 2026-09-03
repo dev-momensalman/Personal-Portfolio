@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Code2, ArrowUp } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -13,6 +14,7 @@ const navLinks = [
 const socialLinks = [
   { icon: Github, href: 'https://github.com/dev-momensalman', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/momensalman', label: 'LinkedIn' },
+  { icon: WhatsAppIcon, href: 'https://wa.me/201101029309', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:momensalman.dev@gmail.com', label: 'Email' },
 ];
 
@@ -114,10 +116,13 @@ export default function Footer() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-xs sm:text-sm text-[#6d797e] font-medium flex items-center gap-1"
+              className="text-xs sm:text-sm text-[#6d797e] font-medium flex items-center gap-1.5"
             >
-              © 2025 Momen Salman. Made with{' '}
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> in Egypt
+              <Code2 className="w-4 h-4 text-[#00677d]" />
+              <span>
+                Designed & Built from scratch by{' '}
+                <span className="font-semibold text-[#171c1f]">Momen Salman</span> • © 2025
+              </span>
             </motion.p>
 
             {/* Back to Top */}

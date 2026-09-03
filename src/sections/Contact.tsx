@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Send, ArrowUpRight, MessageSquare } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const contactInfo = [
   {
@@ -10,6 +10,13 @@ const contactInfo = [
     value: 'momensalman.dev@gmail.com',
     href: 'mailto:momensalman.dev@gmail.com',
     color: '#00677d',
+  },
+  {
+    icon: WhatsAppIcon,
+    label: 'WhatsApp',
+    value: '+20 11 01029309',
+    href: 'https://wa.me/201101029309',
+    color: '#25D366',
   },
   {
     icon: Phone,
@@ -30,7 +37,7 @@ const contactInfo = [
     label: 'LinkedIn',
     value: 'linkedin.com/in/momensalman',
     href: 'https://linkedin.com/in/momensalman',
-    color: '#00b4d8',
+    color: '#0077b5',
   },
 ];
 
@@ -133,12 +140,18 @@ export default function Contact() {
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  whileHover={{ y: -4, borderColor: item.color }}
-                  className="group p-4 sm:p-5 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:bg-white shadow-sm transition-all duration-300 backdrop-blur-md"
+                  transition={{
+                    delay: 0.3 + index * 0.1,
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 24
+                  }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group p-4 sm:p-5 rounded-2xl bg-white/80 border border-[#bcc9ce]/60 hover:border-[#00677d]/60 hover:bg-white shadow-sm hover:shadow-md transition-colors duration-300 backdrop-blur-md cursor-pointer"
                 >
                   <div
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-3 transition-transform group-hover:scale-110 shadow-sm"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-3 transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-sm"
                     style={{ backgroundColor: `${item.color}15` }}
                   >
                     <item.icon className="w-5 h-5" style={{ color: item.color }} />
@@ -221,24 +234,49 @@ export default function Contact() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-semibold transition-all glow shadow-md ${isSuccess ? 'bg-emerald-600' : 'gradient-bg'
+                  className={`w-full min-h-[50px] flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-semibold transition-all glow shadow-md ${isSuccess ? 'bg-emerald-600' : 'gradient-bg'
                     } ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-                  whileHover={!isSubmitting ? { scale: 1.01 } : {}}
-                  whileTap={!isSubmitting ? { scale: 0.99 } : {}}
+                  whileHover={!isSubmitting ? { scale: 1.02, y: -2 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.97 } : {}}
+                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 >
-                  {isSubmitting ? (
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  ) : isSuccess ? (
-                    <>
-                      <Send className="w-4 h-4 translate-x-1 -translate-y-1" />
-                      Sent Successfully!
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      Send Message
-                    </>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {isSubmitting ? (
+                      <motion.div
+                        key="submitting"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="flex items-center gap-2"
+                      >
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Sending...</span>
+                      </motion.div>
+                    ) : isSuccess ? (
+                      <motion.div
+                        key="success"
+                        initial={{ opacity: 0, scale: 0.8, y: 5 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Send className="w-4 h-4 translate-x-1 -translate-y-1" />
+                        <span>Sent Successfully!</span>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="idle"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.button>
               </form>
             </div>

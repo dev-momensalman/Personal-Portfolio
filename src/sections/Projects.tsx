@@ -221,15 +221,18 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               {project.description}
             </p>
 
-            {/* Tech Stack Chips - Pill Shaped */}
+            {/* Tech Stack Chips - Pill Shaped with tactile Motion spring */}
             <div className="flex flex-wrap gap-2 mb-5">
               {project.tech.map((tech: string) => (
-                <span
+                <motion.span
                   key={tech}
-                  className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#00b4d8]/10 border border-[#00b4d8]/30 text-[#00414f]"
+                  whileHover={{ scale: 1.08, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 450, damping: 20 }}
+                  className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#00b4d8]/10 border border-[#00b4d8]/30 text-[#00414f] hover:border-[#00677d] hover:bg-[#00b4d8]/20 transition-colors cursor-pointer select-none"
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
             </div>
 
@@ -250,8 +253,9 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               <motion.a
                 href={project.github}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white border-2 border-[#171c1f] text-[#171c1f] text-xs font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 <Github className="w-4 h-4" />
                 Code
@@ -264,8 +268,9 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
                   ? "flex-1 relative overflow-hidden flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-xs font-bold shadow-md ring-1 ring-white/20 transition-all"
                   : "flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl gradient-bg text-white text-xs font-semibold glow shadow-md"
                 }
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ y: -2, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 {project.demoType === 'google-play' ? (
                   <>

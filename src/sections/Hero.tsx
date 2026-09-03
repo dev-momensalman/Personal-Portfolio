@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -186,18 +187,30 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 mb-8"
             >
-              <div className="text-center lg:text-left">
+              <motion.div
+                whileHover={{ scale: 1.06, y: -3 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                className="text-center lg:text-left cursor-default"
+              >
                 <div className="text-2xl sm:text-3xl font-extrabold gradient-text">2+</div>
                 <div className="text-sm font-medium text-[#3d494d]">Years Experience</div>
-              </div>
-              <div className="text-center lg:text-left">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.06, y: -3 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                className="text-center lg:text-left cursor-default"
+              >
                 <div className="text-2xl sm:text-3xl font-extrabold gradient-text">5+</div>
                 <div className="text-sm font-medium text-[#3d494d]">Projects</div>
-              </div>
-              <div className="text-center lg:text-left">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.06, y: -3 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                className="text-center lg:text-left cursor-default"
+              >
                 <div className="text-2xl sm:text-3xl font-extrabold gradient-text">3+</div>
                 <div className="text-sm font-medium text-[#3d494d]">Certifications</div>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -208,8 +221,9 @@ export default function Hero() {
               <motion.button
                 onClick={() => scrollToSection('#projects')}
                 className="group relative w-full sm:w-auto px-8 py-3.5 rounded-full gradient-bg text-white font-semibold flex items-center justify-center gap-2 glow shadow-md"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 View My Work
                 <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform" />
@@ -219,8 +233,9 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white border-2 border-[#00677d] text-[#00677d] font-semibold hover:bg-[#00677d] hover:text-white transition-all shadow-sm flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 <Download size={18} />
                 Download CV
@@ -228,8 +243,9 @@ export default function Hero() {
               <motion.button
                 onClick={() => scrollToSection('#contact')}
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white border-2 border-[#171c1f] text-[#171c1f] font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 Contact Me
               </motion.button>
@@ -242,6 +258,7 @@ export default function Hero() {
             >
               <SocialLink href="https://github.com/dev-momensalman" icon={Github} />
               <SocialLink href="https://linkedin.com/in/momensalman" icon={Linkedin} />
+              <SocialLink href="https://wa.me/201101029309" icon={WhatsAppIcon} />
               <SocialLink href="mailto:momensalman.dev@gmail.com" icon={Mail} />
             </motion.div>
           </motion.div>
@@ -359,8 +376,9 @@ function SocialLink({ href, icon: Icon }: { href: string; icon: any }) {
       target="_blank"
       rel="noopener noreferrer"
       className="p-3.5 rounded-xl bg-white border border-[#bcc9ce] text-[#3d494d] hover:text-[#00677d] hover:border-[#00b4d8] hover:bg-[#eff4f7] transition-all relative group shadow-sm"
-      whileHover={{ y: -5, scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ y: -4, scale: 1.08 }}
+      whileTap={{ scale: 0.94 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 20 }}
     >
       <Icon size={20} />
       <div className="absolute inset-0 rounded-xl bg-[#00b4d8]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
