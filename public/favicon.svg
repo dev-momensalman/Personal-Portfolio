@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Website Signature Gradient: #00677d to #00b4d8 -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#00677d" />
+      <stop offset="100%" stopColor="#00b4d8" />
+    </linearGradient>
+
+    <!-- Cyan Glow Accent -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#4cd6fb" />
+      <stop offset="100%" stopColor="#00b4d8" />
+    </linearGradient>
+
+    <!-- Terminal Dark Surface: #171c1f (from website design system) -->
+    <radialGradient id="bgGrad" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stopColor="#222b30" />
+      <stop offset="100%" stopColor="#171c1f" />
+    </radialGradient>
+  </defs>
+
+  <!-- Squircle Base (Dark Terminal/IDE Surface) -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  
+  <!-- Outer Border using the site's primary gradient -->
+  <rect
+    x="8"
+    y="8"
+    width="496"
+    height="496"
+    rx="120"
+    fill="none"
+    stroke="url(#primaryGrad)"
+    stroke-width="14"
+    stroke-opacity="0.9"
+  />
+
+  <!-- Inner Soft Cyan Glow -->
+  <circle cx="256" cy="256" r="180" fill="#00b4d8" opacity="0.08" filter="blur(20px)" />
+
+  <!-- Programming Symbol: Left Code Bracket < -->
+  <path
+    d="M148 180 L76 256 L148 332"
+    fill="none"
+    stroke="url(#cyanGrad)"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Developer Monogram: Letter M -->
+  <path
+    d="M196 340 V184 c0-8 6.5-14 14.5-14 h4 c6 0 11.5 3.3 14.5 8.7 L256 230 l27-51.3 c3-5.4 8.5-8.7 14.5-8.7 h4 c8 0 14.5 6 14.5 14 v156"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Programming Symbol: Right Code Bracket > -->
+  <path
+    d="M364 180 L436 256 L364 332"
+    fill="none"
+    stroke="url(#cyanGrad)"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Small Code Terminal Dot Accent -->
+  <circle cx="256" cy="336" r="10" fill="#4cd6fb" />
+</svg>

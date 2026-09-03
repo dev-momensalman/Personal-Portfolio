@@ -105,13 +105,54 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
         }}
         transition={{ duration: 0.5 }}
       >
-        {/* Rotating Futuristic Emblem */}
-        <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center mb-6">
-          <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#00b4d8]/60 animate-[spin_8s_linear_infinite]" />
-          <div className="absolute inset-2 rounded-full border border-[#00677d]/40 animate-[spin_5s_linear_infinite_reverse]" />
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#00677d] via-[#00b4d8] to-[#4cd6fb] flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-xl glow">
-            MS
-          </div>
+        {/* Futuristic Emblem with New Developer < M > Logo */}
+        <div className="relative w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center mb-6">
+          {/* Outer Cyber Orbital Rings */}
+          <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#00b4d8]/50 animate-[spin_10s_linear_infinite]" />
+          <div className="absolute inset-2 rounded-full border border-[#00677d]/40 animate-[spin_7s_linear_infinite_reverse]" />
+          
+          {/* Ambient Glow */}
+          <div className="absolute inset-4 rounded-3xl bg-[#00b4d8]/25 blur-xl animate-pulse" />
+
+          {/* New Developer Logo Container */}
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-[#171c1f] border-2 border-[#00b4d8]/80 shadow-[0_0_30px_rgba(0,180,216,0.45)] flex items-center justify-center p-3.5 overflow-hidden"
+          >
+            {/* Background subtle gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00677d]/25 via-transparent to-[#00b4d8]/25 pointer-events-none" />
+
+            {/* < M > SVG Logo */}
+            <svg viewBox="0 0 512 512" className="w-full h-full relative z-10 drop-shadow-[0_0_8px_rgba(0,180,216,0.6)]" fill="none">
+              {/* Left Code Bracket < */}
+              <path
+                d="M148 180 L76 256 L148 332"
+                stroke="#00b4d8"
+                strokeWidth="42"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Developer Monogram: Letter M */}
+              <path
+                d="M196 340 V184 c0-8 6.5-14 14.5-14 h4 c6 0 11.5 3.3 14.5 8.7 L256 230 l27-51.3 c3-5.4 8.5-8.7 14.5-8.7 h4 c8 0 14.5 6 14.5 14 v156"
+                stroke="#ffffff"
+                strokeWidth="42"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Right Code Bracket > */}
+              <path
+                d="M364 180 L436 256 L364 332"
+                stroke="#00b4d8"
+                strokeWidth="42"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Glowing Accent Dot */}
+              <circle cx="256" cy="336" r="14" fill="#4cd6fb" />
+            </svg>
+          </motion.div>
         </div>
 
         {/* Progress Counter & Status */}
