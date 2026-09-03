@@ -220,35 +220,26 @@ export default function Hero() {
             >
               <motion.button
                 onClick={() => scrollToSection('#projects')}
-                className="group relative w-full sm:w-auto px-8 py-3.5 rounded-full gradient-bg text-white font-semibold flex items-center justify-center gap-2 glow shadow-md"
+                className="group relative w-full sm:w-auto px-7 py-3.5 rounded-full gradient-bg text-white font-semibold flex items-center justify-center gap-2.5 glow shadow-md whitespace-nowrap text-sm sm:text-base tracking-wide"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
-                View My Work
-                <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform" />
+                <span>View My Work</span>
+                <ArrowDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
               </motion.button>
               <motion.a
                 href={cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white border-2 border-[#00677d] text-[#00677d] font-semibold hover:bg-[#00677d] hover:text-white transition-all shadow-sm flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/90 border border-[#00677d]/40 text-[#00677d] font-semibold hover:border-[#00677d] hover:bg-[#00677d]/10 transition-colors shadow-sm flex items-center justify-center gap-2.5 whitespace-nowrap text-sm sm:text-base tracking-wide backdrop-blur-sm"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 <Download size={18} />
-                Download CV
+                <span>Download CV</span>
               </motion.a>
-              <motion.button
-                onClick={() => scrollToSection('#contact')}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white border-2 border-[#171c1f] text-[#171c1f] font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-              >
-                Contact Me
-              </motion.button>
             </motion.div>
 
             {/* Social Links */}
