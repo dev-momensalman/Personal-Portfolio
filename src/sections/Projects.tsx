@@ -108,15 +108,18 @@ export default function Projects() {
 }
 
 function ProjectCard({ project, index, isInView }: { project: any; index: number; isInView: boolean }) {
+  const isDesktop = typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDesktop) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const xPct = (e.clientX - rect.left) / rect.width - 0.5;
     const yPct = (e.clientY - rect.top) / rect.height - 0.5;
@@ -125,34 +128,35 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
   };
 
   const handleMouseLeave = () => {
+    if (!isDesktop) return;
     x.set(0);
     y.set(0);
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        delay: 0.2 + index * 0.15,
+        delay: 0.15 + index * 0.1,
         type: 'spring' as const,
-        stiffness: 50,
-        damping: 15
+        stiffness: 80,
+        damping: 18
       }}
       className="group"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
+      style={isDesktop ? {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
-      }}
+      } : undefined}
     >
       <div
-        className="h-full rounded-[2rem] bg-white/90 border border-[#bcc9ce]/60 overflow-hidden hover:border-[#00b4d8] transition-colors duration-500 relative shadow-md backdrop-blur-md flex flex-col"
-        style={{
+        className="h-full rounded-[2rem] bg-white/95 md:bg-white/90 border border-[#bcc9ce]/60 overflow-hidden hover:border-[#00b4d8] transition-colors duration-500 relative shadow-md md:backdrop-blur-md flex flex-col"
+        style={isDesktop ? {
           transform: "translateZ(40px)",
-        }}
+        } : undefined}
       >
         {/* Project Header */}
         <div
@@ -163,6 +167,8 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             <img
               src={project.image}
               alt={project.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-[#171c1f]/30 group-hover:bg-[#171c1f]/10 transition-colors duration-500" />
@@ -183,7 +189,7 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
               className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 shadow-lg"
               whileHover={{ scale: 1.1, rotate: 10 }}
               transition={{ type: 'spring' as const, stiffness: 300, damping: 10 }}
-              style={{ transform: "translateZ(70px)" }}
+              style={isDesktop ? { transform: "translateZ(70px)" } : undefined}
             >
               <project.icon className="w-5 h-5 text-white" />
             </motion.div>
@@ -206,7 +212,7 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
         </div>
 
         {/* Content */}
-        <div className="p-5 lg:p-6 flex-1 flex flex-col justify-between" style={{ transform: "translateZ(35px)" }}>
+        <div className="p-5 lg:p-6 flex-1 flex flex-col justify-between" style={isDesktop ? { transform: "translateZ(35px)" } : undefined}>
           <div>
             {/* Title */}
             <div className="mb-3">

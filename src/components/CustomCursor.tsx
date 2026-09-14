@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function CustomCursor() {
+    // Only enable custom cursor on devices with a mouse/fine pointer
+    const isTouchDevice = typeof window !== 'undefined' && 
+        (window.matchMedia('(pointer: coarse)').matches || !window.matchMedia('(hover: hover)').matches);
+
+    if (isTouchDevice) {
+        return null;
+    }
+
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -50,8 +58,6 @@ export default function CustomCursor() {
             window.removeEventListener('mouseout', handleMouseOut);
         };
     }, [isVisible, cursorX, cursorY]);
-
-    if (typeof window !== 'undefined' && 'ontouchstart' in window) return null;
 
     return (
         <div className="fixed inset-0 pointer-events-none z-[100]">

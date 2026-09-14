@@ -106,6 +106,34 @@
   }
 }
 
+/* Mobile Performance & Smooth Scrolling */
+@media (max-width: 768px) {
+  /* Disable expensive continuous backdrop-filters on mobile screens to save GPU memory and eliminate scrolling lag */
+  .backdrop-blur-md,
+  .backdrop-blur-xl,
+  .backdrop-blur-lg,
+  .backdrop-blur-2xl,
+  .glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Defer rendering of offscreen sections until scrolled near */
+  #about,
+  #skills,
+  #experience,
+  #projects,
+  #contact {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
+  }
+
+  /* Enforce smooth GPU composite layer */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

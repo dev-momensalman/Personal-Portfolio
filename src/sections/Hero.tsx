@@ -67,11 +67,13 @@ export default function Hero() {
   const springY = useSpring(mouseY, { stiffness: 40, damping: 30 });
 
   useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia('(pointer: fine)').matches) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX - window.innerWidth / 2);
       mouseY.set(e.clientY - window.innerHeight / 2);
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
@@ -109,31 +111,33 @@ export default function Hero() {
         }}
       />
 
-      {/* Floating Orbs - with Parallax */}
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-[#00b4d8]/15 blur-3xl p-10"
-        style={{ x: orbX, y: orbY }}
-        animate={{
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 left-1/3 w-96 h-96 rounded-full bg-[#00677d]/10 blur-3xl"
-        style={{ x: orb2X, y: orb2Y }}
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+      {/* Floating Orbs - only rendered on desktop to prevent mobile GPU thermal throttling */}
+      <div className="hidden md:block pointer-events-none">
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-[#00b4d8]/15 blur-3xl p-10"
+          style={{ x: orbX, y: orbY }}
+          animate={{
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 left-1/3 w-96 h-96 rounded-full bg-[#00677d]/10 blur-3xl"
+          style={{ x: orb2X, y: orb2Y }}
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+      </div>
 
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
@@ -263,18 +267,7 @@ export default function Hero() {
           >
             <div className="relative group/image">
               {/* Outer Glow Ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00677d] to-[#00b4d8] blur-3xl opacity-30"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: 'easeInOut'
-                }}
-              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00677d] to-[#00b4d8] blur-2xl opacity-25 pointer-events-none" />
 
               {/* Main Image Container */}
               <motion.div
@@ -324,6 +317,8 @@ export default function Hero() {
                   <motion.img
                     src={`${import.meta.env.BASE_URL}profile.jpg`}
                     alt="Momen Salman - Mobile App Developer"
+                    loading="eager"
+                    decoding="async"
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

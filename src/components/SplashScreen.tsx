@@ -10,16 +10,16 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isOpening, setIsOpening] = useState(false);
 
   useEffect(() => {
-    // Smooth progress counter from 0 to 100
+    // Snappy progress counter from 0 to 100 with fewer re-renders
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           return 100;
         }
-        return prev + 2;
+        return prev + 4;
       });
-    }, 20);
+    }, 25);
 
     return () => clearInterval(interval);
   }, []);
@@ -28,11 +28,11 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     if (progress === 100) {
       const openTimer = setTimeout(() => {
         setIsOpening(true);
-      }, 300);
+      }, 150);
 
       const completeTimer = setTimeout(() => {
         onComplete();
-      }, 1200);
+      }, 850);
 
       return () => {
         clearTimeout(openTimer);
