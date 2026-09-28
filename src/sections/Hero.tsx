@@ -271,9 +271,6 @@ export default function Hero() {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative group/image">
-              {/* Outer Glow Ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00677d] to-[#00b4d8] blur-2xl opacity-25 pointer-events-none" />
-
               {/* Main Image Container */}
               <motion.div
                 className="relative w-40 h-40 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
@@ -293,18 +290,7 @@ export default function Hero() {
                     </linearGradient>
                   </defs>
 
-                  {/* Background track circle */}
-                  <circle
-                    cx="120"
-                    cy="120"
-                    r="104"
-                    stroke="#dee3e6"
-                    strokeWidth="2.5"
-                    fill="none"
-                    opacity="0.5"
-                  />
-
-                  {/* Smooth Sine Wave Progress Path */}
+                  {/* Smooth Sine Wave Progress Path - The only moving strip */}
                   <path
                     className="wavy-progress-circle"
                     d={SINE_WAVE_PATH}
@@ -316,11 +302,10 @@ export default function Hero() {
                   />
                 </svg>
 
-                {/* Profile Photo Container */}
-                <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-tr from-[#004d5e] via-[#00677d] to-[#00b4d8] shadow-xl">
-                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.25)] z-10 pointer-events-none" />
+                {/* Profile Photo Container - 100% Transparent, No Background, No Frame */}
+                <div className="absolute inset-0 rounded-full overflow-hidden bg-transparent">
                   <motion.img
-                    src={`${import.meta.env.BASE_URL}profile.png?v=3`}
+                    src={`${import.meta.env.BASE_URL}profile.png?v=5`}
                     alt="Momen Salman - Mobile App Developer"
                     loading="eager"
                     decoding="async"
