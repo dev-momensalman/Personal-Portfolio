@@ -317,10 +317,10 @@ export default function Hero() {
                 </svg>
 
                 {/* Profile Photo Container */}
-                <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-b from-[#e6f4f8] via-[#f0f9fb] to-[#dff0f5] shadow-lg">
-                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_15px_rgba(0,103,125,0.08)] z-10 pointer-events-none" />
+                <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-tr from-[#004d5e] via-[#00677d] to-[#00b4d8] shadow-xl">
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.25)] z-10 pointer-events-none" />
                   <motion.img
-                    src={`${import.meta.env.BASE_URL}profile.png`}
+                    src={`${import.meta.env.BASE_URL}profile.png?v=3`}
                     alt="Momen Salman - Mobile App Developer"
                     loading="eager"
                     decoding="async"
