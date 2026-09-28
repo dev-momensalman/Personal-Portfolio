@@ -1,4 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
+# Host & Sitemap
+Host: https://www.momen.info
 Sitemap: https://www.momen.info/sitemap.xml

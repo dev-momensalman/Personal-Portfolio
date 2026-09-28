@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Code2, ArrowUp } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import ShareButton from '../components/ShareButton';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Certifications', href: '#certifications' },
+  { name: 'Education', href: '#education' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -103,6 +106,7 @@ export default function Footer() {
                 <social.icon className="w-5 h-5" />
               </motion.a>
             ))}
+            <ShareButton variant="compact" className="!w-11 !h-11" />
           </motion.div>
 
           {/* Divider */}

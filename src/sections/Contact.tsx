@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Send, ArrowUpRight, MessageSquare } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import ShareButton from '../components/ShareButton';
 
 const contactInfo = [
   {
@@ -163,6 +164,26 @@ export default function Contact() {
                   </p>
                 </motion.a>
               ))}
+
+              {/* Share Portfolio Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  delay: 0.3 + contactInfo.length * 0.1,
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 24,
+                }}
+                className="p-5 rounded-2xl bg-gradient-to-br from-white to-[#eff7fa] border border-[#bcc9ce]/60 shadow-sm backdrop-blur-md flex flex-col justify-between gap-3"
+              >
+                <div>
+                  <p className="text-xs font-semibold text-[#00677d] mb-1 uppercase tracking-wider">Spread the Word</p>
+                  <p className="text-[#171c1f] text-sm font-bold">Know someone hiring mobile developers?</p>
+                  <p className="text-xs text-[#6d797e] mt-1">Share this portfolio with your network or hiring managers.</p>
+                </div>
+                <ShareButton className="w-full justify-center" />
+              </motion.div>
             </div>
           </motion.div>
 

@@ -5,6 +5,7 @@ import Hero from './sections/Hero';
 import About from './sections/About';
 import Skills from './sections/Skills';
 import Experience from './sections/Experience';
+import Certifications from './sections/Certifications';
 import Education from './sections/Education';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
@@ -12,6 +13,7 @@ import Footer from './sections/Footer';
 
 import CustomCursor from './components/CustomCursor';
 import SplashScreen from './components/SplashScreen';
+import { Toaster } from 'sonner';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,11 +37,13 @@ function App() {
             <About />
             <Skills />
             <Experience />
+            <Certifications />
             <Education />
             <Projects />
             <Contact />
           </main>
           <Footer />
+          <Toaster position="bottom-right" richColors />
         </motion.div>
       )}
     </AnimatePresence>

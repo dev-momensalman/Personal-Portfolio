@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.momen.info/</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.momen.info/profile.jpg</image:loc>
+      <image:title>Momen Salman - Flutter &amp; Mobile App Developer</image:title>
+      <image:caption>Momen Salman profile photo and portfolio header</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.momen.info/khaleek-momen.jpg</image:loc>
+      <image:title>Khaleek Momen - Islamic Audio Hub Flutter Application</image:title>
+      <image:caption>Mobile app screenshot of Khaleek Momen by Momen Salman</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.momen.info/iot-controller.jpg</image:loc>
+      <image:title>IOT Controller Mobile App</image:title>
+      <image:caption>Bluetooth IOT Controller developed with Flutter</image:caption>
+    </image:image>
   </url>
 </urlset>

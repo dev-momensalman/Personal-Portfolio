@@ -2,6 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import ShareButton from '../components/ShareButton';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -207,14 +208,17 @@ export default function Hero() {
                 <div className="text-2xl sm:text-3xl font-extrabold gradient-text">5+</div>
                 <div className="text-sm font-medium text-[#3d494d]">Projects</div>
               </motion.div>
-              <motion.div
+              <motion.button
+                onClick={() => scrollToSection('#certifications')}
                 whileHover={{ scale: 1.06, y: -3 }}
+                whileTap={{ scale: 0.96 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                className="text-center lg:text-left cursor-default"
+                className="text-center lg:text-left cursor-pointer group"
+                title="View Verified Certifications"
               >
-                <div className="text-2xl sm:text-3xl font-extrabold gradient-text">3+</div>
-                <div className="text-sm font-medium text-[#3d494d]">Certifications</div>
-              </motion.div>
+                <div className="text-2xl sm:text-3xl font-extrabold gradient-text group-hover:scale-105 transition-transform">3+</div>
+                <div className="text-sm font-medium text-[#3d494d] group-hover:text-[#00677d] transition-colors">Certifications</div>
+              </motion.button>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -246,15 +250,16 @@ export default function Hero() {
               </motion.a>
             </motion.div>
 
-            {/* Social Links */}
+            {/* Social Links & Share */}
             <motion.div
               variants={itemVariants}
-              className="flex items-center justify-center lg:justify-start gap-3"
+              className="flex items-center justify-center lg:justify-start gap-3 flex-wrap"
             >
-              <SocialLink href="https://github.com/dev-momensalman" icon={Github} />
-              <SocialLink href="https://linkedin.com/in/momensalman" icon={Linkedin} />
-              <SocialLink href="https://wa.me/201101029309" icon={WhatsAppIcon} />
-              <SocialLink href="mailto:momensalman.dev@gmail.com" icon={Mail} />
+              <SocialLink href="https://github.com/dev-momensalman" icon={Github} label="GitHub Profile" />
+              <SocialLink href="https://linkedin.com/in/momensalman" icon={Linkedin} label="LinkedIn Profile" />
+              <SocialLink href="https://wa.me/201101029309" icon={WhatsAppIcon} label="WhatsApp Direct Message" />
+              <SocialLink href="mailto:momensalman.dev@gmail.com" icon={Mail} label="Email Momen Salman" />
+              <ShareButton variant="compact" />
             </motion.div>
           </motion.div>
 
@@ -355,12 +360,14 @@ export default function Hero() {
   );
 }
 
-function SocialLink({ href, icon: Icon }: { href: string; icon: any }) {
+function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; label?: string }) {
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label || 'Social Link'}
+      title={label}
       className="p-3.5 rounded-xl bg-white border border-[#bcc9ce] text-[#3d494d] hover:text-[#00677d] hover:border-[#00b4d8] hover:bg-[#eff4f7] transition-all relative group shadow-sm"
       whileHover={{ y: -4, scale: 1.08 }}
       whileTap={{ scale: 0.94 }}

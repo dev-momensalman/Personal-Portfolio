@@ -166,7 +166,7 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
           <div className="absolute inset-0">
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - ${project.subtitle} Mobile Application by Momen Salman`}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -258,6 +258,9 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             {project.github && (
               <motion.a
                 href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View GitHub repository for ${project.title}`}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white border-2 border-[#171c1f] text-[#171c1f] text-xs font-semibold hover:bg-[#171c1f] hover:text-white transition-all shadow-sm"
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
@@ -270,6 +273,9 @@ function ProjectCard({ project, index, isInView }: { project: any; index: number
             {project.demo && (
               <motion.a
                 href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={project.demoType === 'google-play' ? `Download ${project.title} on Google Play` : `View live demo of ${project.title}`}
                 className={project.demoType === 'google-play'
                   ? "flex-1 relative overflow-hidden flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#00C853] via-[#00AEEF] to-[#A142F4] text-white text-xs font-bold shadow-md ring-1 ring-white/20 transition-all"
                   : "flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl gradient-bg text-white text-xs font-semibold glow shadow-md"
